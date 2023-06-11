@@ -1,6 +1,9 @@
 'use client'
+import Head from 'next/head'
 import '../globals.css'
 import { useEffect } from 'react'
+import Link from 'next/link'
+
 
 export default function RootLayout({
   children,
@@ -8,17 +11,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   useEffect(() => {
-    // Toggle sidebar
+
+    // Close sidebar if clicked outside the sidebar
+    
+    // Todo : Also add this feature for subscriberform
     const handleClickOutside = (e: MouseEvent) => {
       const sidebar = document.querySelector("#sidebar");
       const sidebarButton = document.querySelector("#sidebar_button");
-
+      
       if (sidebar && sidebarButton && !sidebar.contains(e.target as Node) && !sidebarButton.contains(e.target as Node)
       ) {
         sidebar.classList.remove("translate-x-0");
       }
     };
-
+    
+    // Toggle sidebar
     const handleSidebarButtonClick = () => {
       const sidebar = document.querySelector("#sidebar");
 
@@ -36,30 +43,47 @@ export default function RootLayout({
         header.classList.remove("shadow-2xl");
       }
     };
-    
+
+    // Toggle subscribe form
+    const toggleSubscribeForm = () => {
+      document.querySelector("#subscribeForm").classList.toggle('hidden');
+    }
+
     document.addEventListener("click", handleClickOutside);
     document.getElementById("sidebar_button")?.addEventListener("click", handleSidebarButtonClick);
-    window.addEventListener("scroll",showShadow)
+    window.addEventListener("scroll", showShadow)
+
+
+    const toggleButtons = document.querySelectorAll(".toggleSubscribeForm");
+
+    toggleButtons.forEach(button => {
+      button.addEventListener("click",toggleSubscribeForm);
+    });
+
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
       document.getElementById("sidebar_button")?.removeEventListener("click", handleSidebarButtonClick);
-      window.removeEventListener("scroll",showShadow)
+      window.removeEventListener("scroll", showShadow)
+      toggleButtons.forEach(button => {
+        button.removeEventListener("click",toggleSubscribeForm);
+      });
     };
   }, []);
 
 
   return (
     <html lang="en">
-      <head>
-	      <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"/>
-	      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-      </head>
+      <Head>
+        <link rel="icon" href="/img/fav.png" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      </Head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">
           <div className="text-2xl font-semibold p-2">
-            <div className="inline-block w-8">
-              {/* <img src="/Assets/img/fav.png" alt="logo"/> */}
+            <div className="inline-block w-8 mr-1">
+              <img src="/img/fav.png" alt="logo"/>
             </div>
             Sanjay
           </div>
@@ -73,23 +97,23 @@ export default function RootLayout({
 
             <ul id="sidebar"
               className="uppercase text-sm fixed left-0 top-0 bg-black bg-opacity-95 py-2 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 sm:static sm:flex sm:w-auto sm:h-auto sm:bg-transparent">
-              <a href="/"
+              <Link href="/"
                 className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Home
-              </a>
-              <a href="/about/"
+              </Link>
+              <Link href="/about/"
                 className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 About Me
-              </a>
-              <a href="/blogs/"
+              </Link>
+              <Link href="/blogs/"
                 className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Blogs
-              </a>
-              <a href="/projects/"
+              </Link>
+              <Link href="/projects/"
                 className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Projects
-              </a>
-              <a href="/Assets/docs/Resume.pdf"
+              </Link>
+              <a href="/docs/Resume.pdf"
                 className="flex p-2 m-2 my-4 text-white transition-colors duration-200 bg-indigo-400 border-blue-400 justify-center sm:inline sm:m-1 sm:px-2 sm:py-0 sm:text-xs sm:font-semibold sm:bg-white sm:text-blue-400 sm:border-blue-400 sm:hover:text-white sm:hover:bg-blue-400 border rounded-3xl"
                 target="_blank">
                 Resume
@@ -98,7 +122,7 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className="py-20">{children}</main>
+        <main className='mt-[72px]'>{children}</main>
 
 
         <footer className="bg-indigo-950 text-white p-10 sm:p-16 leading-10">
