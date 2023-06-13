@@ -2,6 +2,7 @@ import { createClient, groq } from "next-sanity";
 import clientConfig from './config/client-config'
 import { Blog } from "@/types/Blog";
 
+
 export async function getBlogs(): Promise<Blog[]> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "blog"]{

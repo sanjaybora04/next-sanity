@@ -17,14 +17,8 @@ const ImageComponent = ({ value }) => {
 
 // Code Component
 const CodeComponent = ({ value }) => {
-  // console.log(value)
   return (
-    <Refractor
-      // In this example, `value` is the value of a `code` field
-      language={value.language}
-      value={value.code}
-      markers={value.highlightedLines}
-    />
+    <div id='codeComponent' dangerouslySetInnerHTML={{__html:value.code}} />
   )
 }
 
