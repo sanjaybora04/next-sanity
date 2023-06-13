@@ -1,4 +1,3 @@
-import { getProjects } from "@/sanity/sanity-utils"
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -7,8 +6,6 @@ export const metadata: Metadata = {
 }
 
 export default async function About() {
-  const projects = await getProjects();
-
   return (
     <>
       {/* Start banner Section */}
@@ -38,6 +35,33 @@ export default async function About() {
       {/* End banner Section */}
       {/* Main Content Start */}
       <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
+
+        <Link href="license-plate-detection/" className="mx-2">
+          <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
+            <div className="flex justify-center self-center">
+              <div className="w-72">
+                <img
+                  className="my-3 rounded-lg"
+                  src="/img/git.jpg"
+                  alt="github icon"
+                />
+              </div>
+            </div>
+            <div className="sm:px-10 sm:min-w-min">
+              <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
+                License Plate Detection
+              </h3>
+              <p className="text-gray-500 py-3">
+                A python module to detect license plates in a given image.
+                <br />
+                It takes an image as input and returns cropped image of License
+                Plate with wrapped perspective
+              </p>
+              <p className="text-gray-500 py-3">September 20, 2022</p>
+            </div>
+          </div>
+        </Link>
+
         <a
           href="https://github.com/sanjaybora04/customaiassistant"
           target="_blank"
@@ -70,31 +94,7 @@ export default async function About() {
             </div>
           </div>
         </a>
-        <Link href="license-plate-detection/" className="mx-2">
-          <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-            <div className="flex justify-center self-center">
-              <div className="w-72">
-                <img
-                  className="my-3 rounded-lg"
-                  src="/img/git.jpg"
-                  alt="github icon"
-                />
-              </div>
-            </div>
-            <div className="sm:px-10 sm:min-w-min">
-              <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                License Plate Detection
-              </h3>
-              <p className="text-gray-500 py-3">
-                A python module to detect license plates in a given image.
-                <br />
-                It takes an image as input and returns cropped image of License
-                Plate with wrapped perspective
-              </p>
-              <p className="text-gray-500 py-3">September 20, 2022</p>
-            </div>
-          </div>
-        </Link>
+
       </section>
       {/*Main Content End*/}
     </>

@@ -1,14 +1,11 @@
-import { getProjects } from "@/sanity/sanity-utils"
 import { Metadata } from "next";
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "Sanjay Bora | Freelancer"
+  title: "About Me"
 }
 
 export default async function About() {
-  const projects = await getProjects();
-
   return (
     <>
   {/* Start banner Section */}
@@ -84,7 +81,7 @@ export default async function About() {
             <p>IOTIOT - Artificial Intelligence</p>
             <p className="text-gray-500">November 2022</p>
             <a
-              href="/Assets/docs/IOTIOTPI0172_SanjayBora.pdf"
+              href="/docs/IOTIOTPI0172_SanjayBora.pdf"
               className="inline-block px-8 py-2 mt-3 text-white bg-gradient-to-r from-indigo-400 to-blue-400"
               target="_blank"
             >

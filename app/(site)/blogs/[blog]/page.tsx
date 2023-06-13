@@ -21,6 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: blog.title,
     description: blog.description,
+    openGraph: {
+      images: [blog.thumbnail],
+      title: blog.title,
+      description: blog.description,
+      url: `https://sanjaybora.ml/blogs/${slug}/`,
+    },
+    authors: [{name:"Sanjay Bora"}],
+    keywords: blog.keywords,
   };
 }
 

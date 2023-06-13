@@ -23,7 +23,7 @@ const blog = {
           name: "alt",
           title: "Alt",
           type: "slug",
-          options:{source: "title"}
+          options: { source: "title" }
         }
       ]
     },
@@ -31,6 +31,14 @@ const blog = {
       name: 'description',
       title: 'Description',
       type: "string"
+    },
+    {
+      name: 'keywords',
+      title: 'Keywords',
+      type: 'array',
+      of: [
+        { type: 'string' }
+      ]
     },
     {
       name: "content",
@@ -49,8 +57,13 @@ const blog = {
               type: "string"
             }
           ]
+        },
+        {
+          name: 'Code',
+          title: 'Code',
+          type: 'code',
         }
-    ]
+      ]
     }
   ]
 }

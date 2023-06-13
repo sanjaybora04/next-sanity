@@ -6,6 +6,7 @@ export type Blog = {
   title: string,
   slug: string,
   description: string,
+  keywords:Array<string>,
   thumbnail: string,
   content: PortableTextBlock[]
 };

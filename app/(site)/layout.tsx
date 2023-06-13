@@ -1,5 +1,4 @@
 'use client'
-import Head from 'next/head'
 import '../globals.css'
 import { useEffect } from 'react'
 import Link from 'next/link'
@@ -74,19 +73,19 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <link rel="icon" href="/img/fav.png" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-      </Head>
+      </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">
-          <div className="text-2xl font-semibold p-2">
+          <Link href='/' className="text-2xl font-semibold p-2">
             <div className="inline-block w-8 mr-1">
               <img src="/img/fav.png" alt="logo"/>
             </div>
             Sanjay
-          </div>
+          </Link>
           <div className="flex px-3">
             <button id="sidebar_button" className="sm:hidden p-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
@@ -130,7 +129,7 @@ export default function RootLayout({
             <div className="">
               <div>About This Page</div>
               <p className="text-sm text-gray-400">
-                This website was coded using HTML, TailwindCss, and Javascript based on a theme from Colorlib.
+                This website was built with nextjs and sanity.io based on a theme from Colorlib.
               </p>
               <p className="text-sm text-gray-400">
                 Copyright © 2023 sanjaybora.ml | All Rights Reserved | Content may not be reproduced or used without permission.
@@ -160,20 +159,16 @@ export default function RootLayout({
           </div>
 
           <div className="inline-block py-5 w-80 algin-top">
-            <div className="">
+            <div>
               <div>Follow Me</div>
               <p className="text-sm text-gray-400">Let's be social. </p>
-              <div className="">
+              <div>
                 <a href="http://www.linkedin.com/in/sanjay-bora-11710822b" target="_blank">
                   <i className="fa fa-linkedin text-gray-300 p-1 hover:text-gray-500 text-xl"></i>
                 </a>
                 <a href="https://github.com/sanjaybora04" target="_blank">
                   <i className="fa fa-github text-gray-300 p-1 hover:text-gray-500 text-xl"></i>
                 </a>
-                <a href="https://instagram.com/sanjaybora04" target="_blank">
-                  <i className="fa fa-instagram text-gray-300 p-1 hover:text-gray-500 text-xl"></i>
-                </a>
-
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-import { getProjects } from "@/sanity/sanity-utils"
 import { Metadata } from "next";
 import Link from 'next/link'
 
@@ -7,8 +6,6 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const projects = await getProjects();
-
   return (
     <>
       {/* Start Banner Section */}
