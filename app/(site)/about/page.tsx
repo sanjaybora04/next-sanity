@@ -44,12 +44,12 @@ export default async function About() {
           <h2 className="uppercase text-4xl font-bold mb-10">
             Personal Details
           </h2>
-          <p className="text-gray-500">Here's some more info about me.</p>
+          <p className="text-gray-500">Here&apos;s some more info about me.</p>
           {/* <a href="about#FAQ" class="inline-block uppercase px-8 py-2 mt-5 text-white bg-gradient-to-r from-indigo-400 to-blue-400">FAQ</a> */}
         </div>
         <div className="py-10">
           <p className="text-gray-500">
-            I'm a freelance web developer and deep learning enthusiast, sharing
+            I&apos;m a freelance web developer and deep learning enthusiast, sharing
             my projects and experience through this blog. Follow me on my coding
             journey and discover the possibilities of technology
           </p>

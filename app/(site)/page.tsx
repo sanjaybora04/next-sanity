@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Link from 'next/link'
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Sanjay Bora | Freelancer"
@@ -16,7 +16,7 @@ export default async function Home() {
           <div className="text-gray-500 italic">
             <div className="inline">
               <div className="inline text-blue-400 text-xl">“ </div>
-              Code is like humor. When you have to explain it, it's bad.
+              Code is like humor. When you have to explain it, it&aposs bad.
               <div className="inline text-blue-400 text-xl"> ” </div>
             </div>
             <div className="inline text-blue-400">- CORY HOUSE</div>
@@ -40,23 +40,23 @@ export default async function Home() {
             <h2 className="uppercase text-4xl font-bold">Personal Details</h2>
             <blockquote className="p-5 border-l-2 border-indigo-400 text-gray-500">
               <p className="p-3">
-                I'm a freelance web developer with a passion for deep learning. I
+                I&apos;m a freelance web developer with a passion for deep learning. I
                 specialize in building web applications that leverage the latest
                 technologies to provide engaging and dynamic user experiences. In
                 addition, I have experience in developing and implementing deep
                 learning algorithms to solve complex problems.
               </p>
               <p className="p-3">
-                On this blog, I share some of the projects I've worked on, both in
+                On this blog, I share some of the projects I&apos;ve worked on, both in
                 web development and deep learning. My goal is to showcase my skills
                 and experience while providing insights into the development process
-                and offering practical advice for fellow developers. Whether you're
-                interested in web development, deep learning, or both, I hope you'll
+                and offering practical advice for fellow developers. Whether you&apos;re
+                interested in web development, deep learning, or both, I hope you&apos;ll
                 find something useful and informative here.
               </p>
               <p className="p-3">
                 Thank you for stopping by, and feel free to contact me if you have
-                any questions or would like to discuss a potential project. Let's
+                any questions or would like to discuss a potential project. Let&apos;s
                 create something amazing together!
               </p>
             </blockquote>
@@ -240,7 +240,7 @@ export default async function Home() {
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">CNN's - 3</p>
+                <p className="text-gray-500 text-right">CNN&apos;s - 3</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[60%]"></div>
                 </div>

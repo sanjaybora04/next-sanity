@@ -1,17 +1,18 @@
 import { Metadata } from "next";
 import { PortableText } from '@portabletext/react';
-import { getProject } from "@/sanity/sanity-utils";
+import { getProject, getProjects } from "@/sanity/sanity-utils";
 import components from "@/app/(site)/components";
 
 type Props = {
   params: { project: string }
 }
-export async function getServerSideProps({ params }: Props) {
-  const slug = params.project;
-  const project = await getProject(slug);
-  return {
-    props: { params, project },
-  };
+
+export async function generateStaticParams() {
+  const projects = await getProjects()
+ 
+  return projects.map((project) => ({
+    project: project.slug,
+  }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Project({ params }: Props) {
+const Project = async({ params }: Props) => {
   const slug = params.project;
   const project = await getProject(slug);
 
@@ -56,3 +57,5 @@ export default async function Project({ params }: Props) {
     </div>
   )
 } 
+
+export default Project

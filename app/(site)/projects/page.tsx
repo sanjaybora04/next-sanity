@@ -40,7 +40,7 @@ export default async function Projects() {
       <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
         {projects.map((project)=>(
 
-          <Link href={"/projects/"+project.slug+'/'} className="mx-2">
+          <Link href={"/projects/"+project.slug+'/'} className="mx-2" key={project._id}>
           <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
             <div className="flex justify-center self-center">
               <div className="w-72">

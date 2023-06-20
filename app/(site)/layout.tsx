@@ -161,7 +161,7 @@ export default function RootLayout({
           <div className="inline-block py-5 w-80 algin-top">
             <div>
               <div>Follow Me</div>
-              <p className="text-sm text-gray-400">Let's be social. </p>
+              <p className="text-sm text-gray-400">Let&apos;s be social. </p>
               <div>
                 <a href="http://www.linkedin.com/in/sanjay-bora-11710822b" target="_blank">
                   <i className="fa fa-linkedin text-gray-300 p-1 hover:text-gray-500 text-xl"></i>

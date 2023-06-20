@@ -1,22 +1,26 @@
-import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, Metadata } from "next";
+import { Metadata } from "next";
 import { PortableText } from '@portabletext/react';
-import { getBlog } from "@/sanity/sanity-utils";
+import { getBlog, getBlogs } from "@/sanity/sanity-utils";
 import components from "@/app/(site)/components";
 import PageReader from "./page-reader";
 
-import { ParsedUrlQuery } from 'querystring';
-import { Blog } from "@/types/Blog";
+type Props = {
+  params:{
+    blog: string
+  }
+}
 
+export async function generateStaticParams() {
+  const blogs = await getBlogs()
+ 
+  return blogs.map((blog) => ({
+    blog: blog.slug,
+  }))
+}
 
-export const getStaticProps: GetStaticProps<{ blog: Blog }> = async (context: GetStaticPropsContext<ParsedUrlQuery>) => {
-  const slug = context.params?.blog as string;
+export async function generateMetadata({ params }:Props): Promise<Metadata> {
+  const slug = params.blog as string;
   const blog = await getBlog(slug);
-  return { props: { blog } };
-};
-
-
-
-export async function generateMetadata({ blog }: InferGetStaticPropsType<typeof getStaticProps>): Promise<Metadata> {
   return {
     title: blog.title,
     description: blog.description,
@@ -31,7 +35,9 @@ export async function generateMetadata({ blog }: InferGetStaticPropsType<typeof 
   };
 }
 
-export default async function Blog({ blog }: InferGetStaticPropsType<typeof getStaticProps>) {
+const BlogPage = async({ params }:Props) => {
+  const slug = params.blog as string;
+  const blog = await getBlog(slug);
   return (
     <div>
       {/* Start banner Section */}
@@ -40,7 +46,7 @@ export default async function Blog({ blog }: InferGetStaticPropsType<typeof getS
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
-          <PageReader/>
+          {/* <PageReader/> */}
         </div>
       </section>
       {/* End banner Section */}
@@ -54,3 +60,5 @@ export default async function Blog({ blog }: InferGetStaticPropsType<typeof getS
     </div>
   )
 } 
+
+export default BlogPage
