@@ -5,20 +5,20 @@ import components from "@/app/(site)/components";
 import PageReader from "./page-reader";
 
 type Props = {
-  params:{
+  params: {
     blog: string
   }
 }
 
 export async function generateStaticParams() {
   const blogs = await getBlogs()
- 
+
   return blogs.map((blog) => ({
     blog: blog.slug,
   }))
 }
 
-export async function generateMetadata({ params }:Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
   return {
@@ -28,14 +28,14 @@ export async function generateMetadata({ params }:Props): Promise<Metadata> {
       images: [blog.thumbnail],
       title: blog.title,
       description: blog.description,
-      url: `https://sanjaybora.ml/blogs/${blog.slug}/`,
+      url: `https://sanjaybora.ml/blogs/${blog.slug}`,
     },
     authors: [{ name: "Sanjay Bora" }],
     keywords: blog.keywords,
   };
 }
 
-const BlogPage = async({ params }:Props) => {
+const BlogPage = async ({ params }: Props) => {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
   return (
@@ -53,12 +53,13 @@ const BlogPage = async({ params }:Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
+        <img src={blog.thumbnail} alt={blog.title} className='my-5 sm:m-7 rounded-lg' />
         <PortableText value={blog.content} components={components} />
       </section>
       {/* End Main Content Section */}
 
     </div>
   )
-} 
+}
 
 export default BlogPage

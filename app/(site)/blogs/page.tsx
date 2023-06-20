@@ -1,10 +1,19 @@
-import { getBlogs} from "@/sanity/sanity-utils"
+import { getBlogs } from "@/sanity/sanity-utils"
 import { Metadata } from "next";
 import Link from "next/link";
 
 // Metadata for page
 export const metadata: Metadata = {
-    title: "Blogs"
+    title: "Blogs",
+    description: "Sanjay bora | Blogs Page",
+    openGraph: {
+        images: ["https://sanjaybora.ml/img/thumbnail.png"],
+        title: "Blogs",
+        description: "Sanjay bora | Blogs Page",
+        url: `https://sanjaybora.ml/blogs`,
+    },
+    authors: [{ name: "Sanjay Bora" }],
+    keywords: ["sanjay bora blogs", "blogs"],
 }
 
 export default async function Blogs() {
@@ -40,7 +49,7 @@ export default async function Blogs() {
             {/* Main Content Start */}
             <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
                 {blogs.map((blog) => (
-                    <Link href={"/blogs/"+blog.slug+"/"} key={blog._id}>
+                    <Link href={"/blogs/" + blog.slug} key={blog._id}>
                         <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
                             <div className="flex justify-center self-center">
                                 <div className="w-72">

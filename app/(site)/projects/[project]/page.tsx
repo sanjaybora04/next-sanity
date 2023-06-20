@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [project.thumbnail],
       title: project.title,
       description: project.description,
-      url: `https://sanjaybora.ml/projects/${slug}/`,
+      url: `https://sanjaybora.ml/projects/${slug}`,
     },
     authors: [{name:"Sanjay Bora"}],
     keywords: project.keywords,
