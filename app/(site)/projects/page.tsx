@@ -1,3 +1,4 @@
+import { getProjects } from "@/sanity/sanity-utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -5,7 +6,9 @@ export const metadata: Metadata = {
   title: "Projects"
 }
 
-export default async function About() {
+export default async function Projects() {
+  const projects = await getProjects()
+
   return (
     <>
       {/* Start banner Section */}
@@ -35,65 +38,31 @@ export default async function About() {
       {/* End banner Section */}
       {/* Main Content Start */}
       <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
+        {projects.map((project)=>(
 
-        <Link href="license-plate-detection/" className="mx-2">
+          <Link href={"/projects/"+project.slug+'/'} className="mx-2">
           <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
             <div className="flex justify-center self-center">
               <div className="w-72">
                 <img
                   className="my-3 rounded-lg"
-                  src="/img/git.jpg"
-                  alt="github icon"
+                  src={project.thumbnail}
+                  alt={project.title}
                 />
               </div>
             </div>
             <div className="sm:px-10 sm:min-w-min">
               <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                License Plate Detection
+                {project.title}
               </h3>
               <p className="text-gray-500 py-3">
-                A python module to detect license plates in a given image.
-                <br />
-                It takes an image as input and returns cropped image of License
-                Plate with wrapped perspective
+                {project.description}
               </p>
-              <p className="text-gray-500 py-3">September 20, 2022</p>
+              <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
             </div>
           </div>
         </Link>
-
-        <a
-          href="https://github.com/sanjaybora04/customaiassistant"
-          target="_blank"
-          className="mx-2"
-        >
-          <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-            <div className="flex justify-center self-center">
-              <div className="w-72">
-                <img
-                  className="my-3 rounded-lg"
-                  src="/img/git.jpg"
-                  alt="github icon"
-                />
-              </div>
-            </div>
-            <div className="sm:px-10 sm:min-w-min">
-              <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                Custom Ai Assistant
-              </h3>
-              <p className="text-gray-500 py-3">
-                Custom Ai Assistant api using pytorch and flask.
-                <br />
-                It uses Artificial Neural Networks(ANN) to recognise intent of user
-                input,
-                <br />
-                And it can be customised to give responses or other functionalities
-                like fetching data from an api, scheduling meetings etc.
-              </p>
-              <p className="text-gray-500 py-3">January 5, 2023</p>
-            </div>
-          </div>
-        </a>
+        ))}
 
       </section>
       {/*Main Content End*/}

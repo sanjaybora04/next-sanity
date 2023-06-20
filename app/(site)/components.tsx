@@ -1,7 +1,8 @@
-import Refractor from 'react-refractor'
 // Image component
 import imageUrlBuilder from '@sanity/image-url'
 import myConfiguredSanityClient from '@/sanity/config/client-config'
+import { SanityImageObject, SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { SanityDocument } from 'sanity'
 
 const builder = imageUrlBuilder(myConfiguredSanityClient)
 
@@ -11,7 +12,7 @@ function urlFor(source) {
 
 const ImageComponent = ({ value }) => {
   return (
-    <img src={urlFor(value).url()} className='my-5 sm:m-7 rounded-lg' />
+    <img src={urlFor(value).url()} alt={value.alt} className='my-5 sm:m-7 rounded-lg' />
   )
 }
 

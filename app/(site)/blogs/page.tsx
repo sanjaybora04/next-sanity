@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: "Blogs"
 }
 
-export default async function About() {
+export default async function Blogs() {
     const blogs = await getBlogs()
 
     return (
@@ -39,14 +39,14 @@ export default async function About() {
             {/* Main Content Start */}
             <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
                 {blogs.map((blog) => (
-                    <Link href={"/blogs/"+blog.slug}>
+                    <Link href={"/blogs/"+blog.slug+"/"}>
                         <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
                             <div className="flex justify-center self-center">
                                 <div className="w-72">
                                     <img
                                         className="my-3 rounded-lg"
                                         src={blog.thumbnail}
-                                        alt="improve battery life"
+                                        alt={blog.title}
                                     />
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ export default async function About() {
                                 <p className="text-gray-500 py-3">
                                     {blog.description}
                                 </p>
-                                <p className="text-gray-500 py-3">{blog._createdAt.toLocaleString()}</p>
+                                <p className="text-gray-500 py-3">{new Date(blog._createdAt).toLocaleDateString()}</p>
                             </div>
                         </div>
                     </Link>
@@ -65,9 +65,5 @@ export default async function About() {
             </section>
             {/*Main Content End*/}
         </>
-
-
-
     )
-
 }

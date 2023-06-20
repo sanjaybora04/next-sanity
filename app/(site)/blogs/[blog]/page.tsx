@@ -1,23 +1,22 @@
-import { Metadata } from "next";
+import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, Metadata } from "next";
 import { PortableText } from '@portabletext/react';
 import { getBlog } from "@/sanity/sanity-utils";
 import components from "@/app/(site)/components";
-import Head from "next/head";
+import PageReader from "./page-reader";
 
-type Props = {
-  params: { blog: string }
-}
-export async function getServerSideProps({ params }: Props) {
-  const slug = params.blog;
-  const blog = await getBlog(slug);
-  return {
-    props: { params, blog },
-  };
-}
+import { ParsedUrlQuery } from 'querystring';
+import { Blog } from "@/types/Blog";
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.blog;
+
+export const getStaticProps: GetStaticProps<{ blog: Blog }> = async (context: GetStaticPropsContext<ParsedUrlQuery>) => {
+  const slug = context.params?.blog as string;
   const blog = await getBlog(slug);
+  return { props: { blog } };
+};
+
+
+
+export async function generateMetadata({ blog }: InferGetStaticPropsType<typeof getStaticProps>): Promise<Metadata> {
   return {
     title: blog.title,
     description: blog.description,
@@ -25,17 +24,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [blog.thumbnail],
       title: blog.title,
       description: blog.description,
-      url: `https://sanjaybora.ml/blogs/${slug}/`,
+      url: `https://sanjaybora.ml/blogs/${blog.slug}/`,
     },
-    authors: [{name:"Sanjay Bora"}],
+    authors: [{ name: "Sanjay Bora" }],
     keywords: blog.keywords,
   };
 }
 
-export default async function Blog({ params }: Props) {
-  const slug = params.blog;
-  const blog = await getBlog(slug);
-
+export default async function Blog({ blog }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       {/* Start banner Section */}
@@ -44,6 +40,7 @@ export default async function Blog({ params }: Props) {
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
+          <PageReader/>
         </div>
       </section>
       {/* End banner Section */}

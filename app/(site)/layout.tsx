@@ -37,15 +37,15 @@ export default function RootLayout({
     const showShadow = () => {
       const header = document.getElementById("header");
       if (window.scrollY > 0) {
-        header.classList.add("shadow-2xl");
+        header?.classList.add("shadow-2xl");
       } else {
-        header.classList.remove("shadow-2xl");
+        header?.classList.remove("shadow-2xl");
       }
     };
 
     // Toggle subscribe form
     const toggleSubscribeForm = () => {
-      document.querySelector("#subscribeForm").classList.toggle('hidden');
+      document.querySelector("#subscribeForm")?.classList.toggle('hidden');
     }
 
     document.addEventListener("click", handleClickOutside);
