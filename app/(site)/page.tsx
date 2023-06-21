@@ -4,6 +4,9 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Sanjay Bora | Freelancer",
   description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+  alternates:{
+    canonical:"https://sanjaybora.ml"
+  },
   openGraph: {
     type: "website",
     images: ["https://sanjaybora.ml/img/thumbnail.png"],
@@ -16,41 +19,42 @@ export const metadata: Metadata = {
 
 }
 
-// const structured_data = {
-//   "@context": "https://schema.org",
-//   "@type": "BreadcrumbList",
-//   "itemListElement": [
-//     {
-//       "@type": "ListItem",
-//       "position": 1,
-//       "name": "Sanjay Bora",
-//       "item": "https://sanjaybora.ml"
-//     },
-//     {
-//       "@type": "ListItem",
-//       "position": 2,
-//       "name": "Projects",
-//       "item": "https://sanjaybora.ml/projects/"
-//     },
-//     {
-//       "@type": "ListItem",
-//       "position": 3,
-//       "name": "Blogs",
-//       "item": "https://sanjaybora.ml/blogs/"
-//     },
-//     {
-//       "@type": "ListItem",
-//       "position": 4,
-//       "name": "About Me",
-//       "item": "https://sanjaybora.ml/about/"
-//     }
-//   ]
-// }
+const structured_data = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Sanjay Bora",
+      "item": "https://sanjaybora.ml"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "https://sanjaybora.ml/projects"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Blogs",
+      "item": "https://sanjaybora.ml/blogs"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "About Me",
+      "item": "https://sanjaybora.ml/about"
+    }
+  ]
+}
 
 export default async function Home() {
-  // const structuredData = JSON.stringify(structured_data)
+  const structuredData = JSON.stringify(structured_data)
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
       {/* Start Banner Section */}
       <section className="flex h-[calc(100vh-72px)] items-center justify-between bg-slate-100">
         <div className="p-10 sm:px-20">

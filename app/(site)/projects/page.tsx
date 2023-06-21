@@ -5,6 +5,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Projects",
   description: "Sanjay bora | Projects Page",
+  alternates:{
+    canonical:"https://sanjaybora.ml/projects"
+  },
   openGraph: {
     type: "website",
     images: ["https://sanjaybora.ml/img/thumbnail.png"],
