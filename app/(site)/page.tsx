@@ -3,18 +3,52 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Sanjay Bora | Freelancer",
+  description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+  openGraph: {
+    type: "website",
+    images: ["https://sanjaybora.ml/img/thumbnail.png"],
+    title: "Sanjay Bora | Freelancer",
     description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-    openGraph: {
-      images: ["https://sanjaybora.ml/img/thumbnail.png"],
-      title: "Sanjay Bora | Freelancer",
-      description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-      url: `https://sanjaybora.ml`,
-    },
-    authors: [{ name: "Sanjay Bora" }],
-    keywords: ["sanjay bora","freelancer","web developer"],
+    url: `https://sanjaybora.ml`,
+  },
+  authors: [{ name: "Sanjay Bora" }],
+  keywords: ["sanjay bora", "freelancer", "web developer"],
+
 }
 
+// const structured_data = {
+//   "@context": "https://schema.org",
+//   "@type": "BreadcrumbList",
+//   "itemListElement": [
+//     {
+//       "@type": "ListItem",
+//       "position": 1,
+//       "name": "Sanjay Bora",
+//       "item": "https://sanjaybora.ml"
+//     },
+//     {
+//       "@type": "ListItem",
+//       "position": 2,
+//       "name": "Projects",
+//       "item": "https://sanjaybora.ml/projects/"
+//     },
+//     {
+//       "@type": "ListItem",
+//       "position": 3,
+//       "name": "Blogs",
+//       "item": "https://sanjaybora.ml/blogs/"
+//     },
+//     {
+//       "@type": "ListItem",
+//       "position": 4,
+//       "name": "About Me",
+//       "item": "https://sanjaybora.ml/about/"
+//     }
+//   ]
+// }
+
 export default async function Home() {
+  // const structuredData = JSON.stringify(structured_data)
   return (
     <>
       {/* Start Banner Section */}

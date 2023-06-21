@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     title: "Blogs",
     description: "Sanjay bora | Blogs Page",
     openGraph: {
+        type: "website",
         images: ["https://sanjaybora.ml/img/thumbnail.png"],
         title: "Blogs",
         description: "Sanjay bora | Blogs Page",
