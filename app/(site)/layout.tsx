@@ -12,18 +12,18 @@ export default function RootLayout({
   useEffect(() => {
 
     // Close sidebar if clicked outside the sidebar
-    
+
     // Todo : Also add this feature for subscriberform
     const handleClickOutside = (e: MouseEvent) => {
       const sidebar = document.querySelector("#sidebar");
       const sidebarButton = document.querySelector("#sidebar_button");
-      
+
       if (sidebar && sidebarButton && !sidebar.contains(e.target as Node) && !sidebarButton.contains(e.target as Node)
       ) {
         sidebar.classList.remove("translate-x-0");
       }
     };
-    
+
     // Toggle sidebar
     const handleSidebarButtonClick = () => {
       const sidebar = document.querySelector("#sidebar");
@@ -56,7 +56,7 @@ export default function RootLayout({
     const toggleButtons = document.querySelectorAll(".toggleSubscribeForm");
 
     toggleButtons.forEach(button => {
-      button.addEventListener("click",toggleSubscribeForm);
+      button.addEventListener("click", toggleSubscribeForm);
     });
 
 
@@ -65,7 +65,7 @@ export default function RootLayout({
       document.getElementById("sidebar_button")?.removeEventListener("click", handleSidebarButtonClick);
       window.removeEventListener("scroll", showShadow)
       toggleButtons.forEach(button => {
-        button.removeEventListener("click",toggleSubscribeForm);
+        button.removeEventListener("click", toggleSubscribeForm);
       });
     };
   }, []);
@@ -77,12 +77,26 @@ export default function RootLayout({
         <link rel="icon" href="https://sanjaybora.ml/img/fav.png" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+        {/* Google Analytics start */}
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0C2T89RB7"></script>
+        <script>
+          {
+            `window.dataLayer = window.dataLayer || [];
+            function gtag() {dataLayer.push(arguments); }
+            gtag('js', new Date());
+
+            gtag('config', 'G-T0C2T89RB7');`
+          }
+        </script>
+        {/* Google Analytics end */}
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">
           <Link href='/' className="text-2xl font-semibold p-2">
             <div className="inline-block w-8 mr-1">
-              <img src="/img/fav.png" alt="logo"/>
+              <img src="/img/fav.png" alt="logo" />
             </div>
             Sanjay
           </Link>

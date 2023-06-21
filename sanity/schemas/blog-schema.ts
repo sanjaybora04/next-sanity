@@ -33,6 +33,14 @@ const blog = {
       type: "string"
     },
     {
+      name: 'structured_data',
+      title: 'Structured Data',
+      type: 'code',
+      options: {
+        language: "json"
+      }
+    },
+    {
       name: 'keywords',
       title: 'Keywords',
       type: 'array',
@@ -62,6 +70,14 @@ const blog = {
           name: 'Code',
           title: 'Code',
           type: 'code',
+        },
+        {
+          name: 'Element',
+          title: 'Element',
+          type: 'code',
+          options: {
+            language: 'html'
+          }
         }
       ]
     }
