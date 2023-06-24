@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: `https://sanjaybora.ml`,
   },
   authors: [{ name: "Sanjay Bora" }],
-  keywords: ["sanjay bora", "freelancer", "web developer"],
+  keywords: ["sanjay bora", "web developer freelance", "freelance web programmer","hire freelance web developer"],
 
 }
 
