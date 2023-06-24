@@ -145,19 +145,19 @@ export default function RootLayout({
           <div className="inline-block py-5 w-80 align-top">
             <div className="">
               <div>About This Page</div>
-              <p className="text-sm text-gray-400">
+              <div className="text-sm text-gray-400">
                 This website was built with nextjs and sanity.io based on a theme from Colorlib.
-              </p>
-              <p className="text-sm text-gray-400">
+              </div>
+              <div className="text-sm text-gray-400">
                 Copyright © 2023 sanjaybora.ml | All Rights Reserved | Content may not be reproduced or used without permission.
-              </p>
+              </div>
             </div>
           </div>
 
           <div className="inline-block py-5 w-80 align-top">
             <div className="single-footer-widget">
               <div>Newsletter</div>
-              <p className="text-sm text-gray-400">Stay updated with my latest projects</p>
+              <div className="text-sm text-gray-400">Stay updated with my latest projects</div>
               <div className="" id="mc_embed_signup">
                 <button className="toggleSubscribeForm my-3 px-2 bg-blue-500 rounded">
                   Subscribe
@@ -178,13 +178,13 @@ export default function RootLayout({
           <div className="inline-block py-5 w-80 algin-top">
             <div>
               <div>Follow Me</div>
-              <p className="text-sm text-gray-400">Let&apos;s be social. </p>
+              <div className="text-sm text-gray-400">Let&apos;s be social. </div>
               <div>
                 <a href="http://www.linkedin.com/in/sanjay-bora-11710822b" target="_blank">
-                  <i className="fa fa-linkedin text-gray-300 p-1 hover:text-gray-500 text-xl"></i>
+                  <span className="fa fa-linkedin text-gray-300 p-1 hover:text-gray-500 text-xl"></span>
                 </a>
                 <a href="https://github.com/sanjaybora04" target="_blank">
-                  <i className="fa fa-github text-gray-300 p-1 hover:text-gray-500 text-xl"></i>
+                  <span className="fa fa-github text-gray-300 p-1 hover:text-gray-500 text-xl"></span>
                 </a>
               </div>
             </div>
