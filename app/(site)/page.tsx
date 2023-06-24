@@ -2,16 +2,16 @@ import { Metadata } from "next";
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Sanjay Bora | Freelancer",
-  description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+  title: "Sanjay Bora | Web Developer",
+  description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
   alternates:{
     canonical:"https://sanjaybora.ml"
   },
   openGraph: {
     type: "website",
     images: ["https://sanjaybora.ml/img/thumbnail.png"],
-    title: "Sanjay Bora | Freelancer",
-    description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+    title: "Sanjay Bora | Web Developer",
+    description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
     url: `https://sanjaybora.ml`,
   },
   authors: [{ name: "Sanjay Bora" }],

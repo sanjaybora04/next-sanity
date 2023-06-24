@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+  description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
   alternates:{
     canonical:"https://sanjaybora.ml/about"
   },
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: "website",
     images: ["https://sanjaybora.ml/img/thumbnail.png"],
     title: "About Me",
-    description: "I am a freelance software developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+    description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
     url: `https://sanjaybora.ml/about`,
   },
   authors: [{ name: "Sanjay Bora" }],
