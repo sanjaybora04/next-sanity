@@ -7,14 +7,14 @@ export const metadata: Metadata = {
     title: "Blogs",
     description: "Sanjay bora | Blogs Page",
     alternates: {
-        canonical: "https://sanjaybora.ml/blogs"
+        canonical: "https://sanjaybora.tech/blogs"
     },
     openGraph: {
         type: "website",
-        images: ["https://sanjaybora.ml/img/thumbnail.png"],
+        images: ["https://sanjaybora.tech/img/thumbnail.png"],
         title: "Blogs",
         description: "Sanjay bora | Blogs Page",
-        url: `https://sanjaybora.ml/blogs`,
+        url: `https://sanjaybora.tech/blogs`,
     },
     authors: [{ name: "Sanjay Bora" }],
     keywords: ["sanjay bora blogs", "blogs"],

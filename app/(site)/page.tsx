@@ -5,14 +5,14 @@ export const metadata: Metadata = {
   title: "Sanjay Bora | Web Developer",
   description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
   alternates:{
-    canonical:"https://sanjaybora.ml"
+    canonical:"https://sanjaybora.tech"
   },
   openGraph: {
     type: "website",
-    images: ["https://sanjaybora.ml/img/thumbnail.png"],
+    images: ["https://sanjaybora.tech/img/thumbnail.png"],
     title: "Sanjay Bora | Web Developer",
     description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-    url: `https://sanjaybora.ml`,
+    url: `https://sanjaybora.tech`,
   },
   authors: [{ name: "Sanjay Bora" }],
   keywords: ["sanjay bora", "web developer freelance", "freelance web programmer","hire freelance web developer","freelance web developer rates"],
@@ -27,25 +27,25 @@ const structured_data = {
       "@type": "ListItem",
       "position": 1,
       "name": "Sanjay Bora",
-      "item": "https://sanjaybora.ml"
+      "item": "https://sanjaybora.tech"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Projects",
-      "item": "https://sanjaybora.ml/projects"
+      "item": "https://sanjaybora.tech/projects"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Blogs",
-      "item": "https://sanjaybora.ml/blogs"
+      "item": "https://sanjaybora.tech/blogs"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "About Me",
-      "item": "https://sanjaybora.ml/about"
+      "item": "https://sanjaybora.tech/about"
     }
   ]
 }

@@ -74,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="https://sanjaybora.ml/img/fav.png" />
+        <link rel="icon" href="https://sanjaybora.tech/img/fav.png" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -149,7 +149,7 @@ export default function RootLayout({
                 This website was built with nextjs and sanity.io based on a theme from Colorlib.
               </div>
               <div className="text-sm text-gray-400">
-                Copyright © 2023 sanjaybora.ml | All Rights Reserved | Content may not be reproduced or used without permission.
+                Copyright © 2023 sanjaybora.tech | All Rights Reserved | Content may not be reproduced or used without permission.
               </div>
             </div>
           </div>
