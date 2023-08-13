@@ -63,7 +63,7 @@ export default async function Home() {
           <div className="text-gray-500 italic">
             <div className="inline">
               <div className="inline text-blue-400 text-xl">“ </div>
-              Code is like humor. When you have to explain it, it&aposs bad.
+              Code is like humor. When you have to explain it, it&aposs; bad.
               <div className="inline text-blue-400 text-xl"> ” </div>
             </div>
             <div className="inline text-blue-400">- CORY HOUSE</div>
