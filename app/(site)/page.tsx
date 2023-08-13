@@ -343,7 +343,7 @@ export default async function Home() {
             </div> */}
 
             {projects.map(project => {
-              return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
+              return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl" key={project._id}>
                 <Link href="/projects/license-plate-detection/">
                   <div className="py-3 h-80 flex justify-center align-middle">
                     <img
