@@ -1,11 +1,12 @@
+import { getProjects } from "@/sanity/sanity-utils";
 import { Metadata } from "next";
 import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Sanjay Bora | Web Developer",
   description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-  alternates:{
-    canonical:"https://www.sanjaybora.tech"
+  alternates: {
+    canonical: "https://www.sanjaybora.tech"
   },
   openGraph: {
     type: "website",
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     url: `https://www.sanjaybora.tech`,
   },
   authors: [{ name: "Sanjay Bora" }],
-  keywords: ["sanjay bora", "web developer freelance", "freelance web programmer","hire freelance web developer","freelance web developer rates"],
+  keywords: ["sanjay bora", "web developer freelance", "freelance web programmer", "hire freelance web developer", "freelance web developer rates"],
 
 }
 
@@ -52,6 +53,7 @@ const structured_data = {
 
 export default async function Home() {
   const structuredData = JSON.stringify(structured_data)
+  const projects = getProjects()
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
@@ -307,8 +309,10 @@ export default async function Home() {
               <p className="text-gray-500 mb-3">Take a look at my recent work.</p>
             </div>
           </div>
+
           <div className="flex flex-wrap justify-center" id="projects">
-            <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
+
+            {/* <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
               <a
                 href="https://github.com/sanjaybora04/customaiassistant"
                 target="_blank"
@@ -336,29 +340,32 @@ export default async function Home() {
                   meetings etc.
                 </p>
               </a>
-            </div>
-            <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
-              <Link href="/projects/license-plate-detection/">
-                <div className="py-3 h-80 flex justify-center align-middle">
-                  <img
-                    src="/projects/license-plate-detection/thumbnail.png"
-                    width={300}
-                    height={300}
-                    alt="LicensePlateDetection"
-                    className="object-contain max-h-full"
-                  />
-                </div>
-                <div className="text-gray-500 pb-2 pt-4">Sept 20, 2022</div>
-                <hr />
-                <h4 className="text-xl font-semibold">License Plate Detection </h4>
-                <p className="text-gray-500">
-                  A python module to detect license plates in a given image.
-                  <br />
-                  It takes an image as input and returns cropped image of License
-                  Plate with wrapped perspective
-                </p>
-              </Link>
-            </div>
+            </div> */}
+
+            {(await projects).map(project => {
+
+
+              return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
+                <Link href="/projects/license-plate-detection/">
+                  <div className="py-3 h-80 flex justify-center align-middle">
+                    <img
+                      src={project.thumbnail}
+                      width={300}
+                      height={300}
+                      alt={project.title}
+                      className="object-contain max-h-full"
+                    />
+                  </div>
+                  <div className="text-gray-500 pb-2 pt-4">{new Date(project._createdAt).toLocaleDateString()}</div>
+                  <hr />
+                  <h4 className="text-xl font-semibold">{project.title} </h4>
+                  <p className="text-gray-500">
+                    {project.description}
+                  </p>
+                </Link>
+              </div>
+            })
+            }
           </div>
         </div>
       </section>
