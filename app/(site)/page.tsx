@@ -53,7 +53,7 @@ const structured_data = {
 
 export default async function Home() {
   const structuredData = JSON.stringify(structured_data)
-  const projects = getProjects()
+  const projects = (await getProjects()).slice(0,3)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
@@ -342,9 +342,7 @@ export default async function Home() {
               </a>
             </div> */}
 
-            {(await projects).map(project => {
-
-
+            {projects.map(project => {
               return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
                 <Link href="/projects/license-plate-detection/">
                   <div className="py-3 h-80 flex justify-center align-middle">
