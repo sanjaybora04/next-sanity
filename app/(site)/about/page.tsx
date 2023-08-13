@@ -5,14 +5,14 @@ export const metadata: Metadata = {
   title: "About Me",
   description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
   alternates:{
-    canonical:"https://sanjaybora.tech/about"
+    canonical:"https://www.sanjaybora.tech/about"
   },
   openGraph: {
     type: "website",
-    images: ["https://sanjaybora.tech/img/thumbnail.png"],
+    images: ["https://www.sanjaybora.tech/img/thumbnail.png"],
     title: "About Me",
     description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-    url: `https://sanjaybora.tech/about`,
+    url: `https://www.sanjaybora.tech/about`,
   },
   authors: [{ name: "Sanjay Bora" }],
   keywords: ["about sanjay bora", "sanjay bora"],
