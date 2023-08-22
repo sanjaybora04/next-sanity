@@ -311,40 +311,9 @@ export default async function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center" id="projects">
-
-            {/* <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl">
-              <a
-                href="https://github.com/sanjaybora04/customaiassistant"
-                target="_blank"
-              >
-                <div className="py-3 h-80 flex justify-center align-middle">
-                  <img
-                    src="/img/CustomAiAssistant.jpg"
-                    width={300}
-                    height={300}
-                    alt="CustomAiAssistant"
-                    className="object-contain max-h-full"
-                  />
-                </div>
-                <div className="text-gray-500 pb-2 pt-4">Jan 05, 2023</div>
-                <hr />
-                <h4 className="text-xl font-semibold">Custom Ai Assistant </h4>
-                <p className="text-gray-500">
-                  Custom Ai Assistant api using pytorch and flask.
-                  <br />
-                  It uses Artificial Neural Networks(ANN) to recognise intent of
-                  user input,
-                  <br />
-                  And it can be customised to give responses or other
-                  functionalities like fetching data from an api, scheduling
-                  meetings etc.
-                </p>
-              </a>
-            </div> */}
-
             {projects.map(project => {
               return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl" key={project._id}>
-                <Link href="/projects/license-plate-detection/">
+                <Link href={project.project_link?project.project_link:"/projects/"+project.slug}>
                   <div className="py-3 h-80 flex justify-center align-middle">
                     <img
                       src={project.thumbnail}
@@ -362,8 +331,7 @@ export default async function Home() {
                   </p>
                 </Link>
               </div>
-            })
-            }
+            })}
           </div>
         </div>
       </section>

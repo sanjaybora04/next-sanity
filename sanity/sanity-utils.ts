@@ -42,6 +42,7 @@ export async function getProjects(): Promise<Project[]> {
       title,
       "slug": slug.current,
       description,
+      project_link,
       "thumbnail": thumbnail.asset->url
     }`
   )

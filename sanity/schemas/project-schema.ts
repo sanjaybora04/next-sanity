@@ -33,6 +33,11 @@ const project = {
       type: "string"
     },
     {
+      name: 'project_link',
+      title: 'Project link',
+      type: 'string'
+    },
+    {
       name: 'structured_data',
       title: 'Structured Data',
       type: 'code',
