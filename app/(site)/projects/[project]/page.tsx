@@ -9,10 +9,16 @@ type Props = {
 
 export async function generateStaticParams() {
   const projects = await getProjects()
- 
-  return projects.map((project) => ({
-    project: project.slug,
-  }))
+
+  return projects.map((project) => {
+    if(!project.project_link){
+      return {
+        project: project.slug,
+      }
+    }else{
+      return
+    }
+  })
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -21,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: project.title,
     description: project.description,
-    alternates:{
-      canonical:`https://sanjaybora.tech/projects/${slug}`
+    alternates: {
+      canonical: `https://sanjaybora.tech/projects/${slug}`
     },
     openGraph: {
       images: [project.thumbnail],
@@ -30,12 +36,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: project.description,
       url: `https://sanjaybora.tech/projects/${slug}`,
     },
-    authors: [{name:"Sanjay Bora"}],
+    authors: [{ name: "Sanjay Bora" }],
     keywords: project.keywords,
   };
 }
 
-const Project = async({ params }: Props) => {
+const Project = async ({ params }: Props) => {
   const slug = params.project;
   const project = await getProject(slug);
 
@@ -59,6 +65,6 @@ const Project = async({ params }: Props) => {
 
     </div>
   )
-} 
+}
 
 export default Project
