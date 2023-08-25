@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://sanjaybora.ml</loc>
+      <loc>https://www.sanjaybora.tech</loc>
       <lastmod>2023-05-05</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://sanjaybora.ml/about</loc>
+      <loc>https://www.sanjaybora.tech/about</loc>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://sanjaybora.ml/blogs</loc>
+      <loc>https://www.sanjaybora.tech/blogs</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://sanjaybora.ml/projects</loc>
+      <loc>https://www.sanjaybora.tech/projects</loc>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
