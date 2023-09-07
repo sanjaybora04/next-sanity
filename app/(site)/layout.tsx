@@ -97,7 +97,7 @@ export default function RootLayout({
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">
-          <Link href='/' className="text-2xl font-semibold p-2">
+          <Link href='/' className="flex text-2xl font-semibold p-2">
             <div className="inline-block w-8 mr-1">
               <img src="/img/fav.png" alt="logo" />
             </div>
@@ -114,23 +114,23 @@ export default function RootLayout({
             <ul id="sidebar"
               className="uppercase text-sm fixed left-0 top-0 bg-black bg-opacity-95 py-2 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 sm:static sm:flex sm:w-auto sm:h-auto sm:bg-transparent">
               <Link href="/"
-                className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
+                className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Home
               </Link>
               <Link href="/about/"
-                className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
+                className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 About Me
               </Link>
               <Link href="/blogs/"
-                className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
+                className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Blogs
               </Link>
               <Link href="/projects/"
-                className="flex p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
+                className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Projects
               </Link>
               <a href="/docs/Resume.pdf"
-                className="flex p-2 m-2 my-4 text-white transition-colors duration-200 bg-indigo-400 border-blue-400 justify-center sm:inline sm:m-1 sm:px-2 sm:py-0 sm:text-xs sm:font-semibold sm:bg-white sm:text-blue-400 sm:border-blue-400 sm:hover:text-white sm:hover:bg-blue-400 border rounded-3xl"
+                className="flex whitespace-nowrap p-2 m-2 my-4 text-white transition-colors duration-200 bg-indigo-400 border-blue-400 justify-center sm:inline sm:m-1 sm:px-2 sm:py-0 sm:text-xs sm:font-semibold sm:bg-white sm:text-blue-400 sm:border-blue-400 sm:hover:text-white sm:hover:bg-blue-400 border rounded-3xl"
                 target="_blank">
                 Resume
               </a>
