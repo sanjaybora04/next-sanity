@@ -113,19 +113,19 @@ export default function RootLayout({
 
             <ul id="sidebar"
               className="uppercase text-sm fixed left-0 top-0 bg-black bg-opacity-95 py-2 w-64 h-full transition-transform -translate-x-full sm:translate-x-0 sm:static sm:flex sm:w-auto sm:h-auto sm:bg-transparent">
-              <Link href="/"
+              <Link to="/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Home
               </Link>
-              <Link href="/about/"
+              <Link to="/about/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 About Me
               </Link>
-              <Link href="/blogs/"
+              <Link to="/blogs/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Blogs
               </Link>
-              <Link href="/projects/"
+              <Link to="/projects/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 Projects
               </Link>
