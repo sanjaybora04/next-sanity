@@ -30,7 +30,7 @@ export default async function Blogs() {
                 <div className="text-center">
                     <h1 className="text-4xl font-bold text-white">Blogs</h1>
                     <p className="text-white text-sm pt-3">
-                        <Link to="/" className="hover:underline">
+                        <Link href="/" className="hover:underline">
                             Home{" "}
                         </Link>
                         <svg
@@ -42,7 +42,7 @@ export default async function Blogs() {
                         >
                             <path d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                         </svg>
-                        <Link to="/blogs/" className="hover:underline">
+                        <Link href="/blogs/" className="hover:underline">
                             {" "}
                             Blogs
                         </Link>
@@ -53,7 +53,7 @@ export default async function Blogs() {
             {/* Main Content Start */}
             <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
                 {blogs.map((blog) => (
-                    <Link to={"/blogs/" + blog.slug} key={blog._id}>
+                    <Link href={"/blogs/" + blog.slug} key={blog._id}>
                         <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
                             <div className="flex justify-center self-center">
                                 <div className="w-72">
