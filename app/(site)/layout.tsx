@@ -75,7 +75,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="https://sanjaybora.tech/img/fav.png" />
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
+        <link to="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
         {/* Google Analytics start */}
@@ -97,7 +97,7 @@ export default function RootLayout({
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">
-          <Link href='/' className="flex text-2xl font-semibold p-2">
+          <Link to='/' className="flex text-2xl font-semibold p-2">
             <div className="inline-block w-8 mr-1">
               <img src="/img/fav.png" alt="logo" />
             </div>

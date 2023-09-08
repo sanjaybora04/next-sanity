@@ -26,7 +26,7 @@ export default async function About() {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-white">About Me</h1>
           <p className="text-white text-sm pt-3">
-            <Link href="/" className="hover:underline">
+            <Link to="/" className="hover:underline">
               Home{" "}
             </Link>
             <svg
@@ -38,7 +38,7 @@ export default async function About() {
             >
               <path d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
-            <Link href="/about/" className="hover:underline">
+            <Link to="/about/" className="hover:underline">
               {" "}
               About Me
             </Link>
