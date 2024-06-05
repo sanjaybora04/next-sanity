@@ -53,7 +53,7 @@ const structured_data = {
 
 export default async function Home() {
   const structuredData = JSON.stringify(structured_data)
-  const projects = (await getProjects()).slice(0,3)
+  const projects = (await getProjects()).slice(0, 3)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
@@ -313,23 +313,42 @@ export default async function Home() {
           <div className="flex flex-wrap justify-center" id="projects">
             {projects.map(project => {
               return <div className="w-80 p-3 m-3 shadow-lg bg-white transition-all duration-500 hover:scale-105 hover:shadow-xl" key={project._id}>
-                <Link href={project.project_link?project.project_link:"/projects/"+project.slug}>
-                  <div className="py-3 h-80 flex justify-center align-middle">
-                    <img
-                      src={project.thumbnail}
-                      width={300}
-                      height={300}
-                      alt={project.title}
-                      className="object-contain max-h-full"
-                    />
-                  </div>
-                  <div className="text-gray-500 pb-2 pt-4">{new Date(project._createdAt).toLocaleDateString()}</div>
-                  <hr />
-                  <h4 className="text-xl font-semibold">{project.title} </h4>
-                  <p className="text-gray-500">
-                    {project.description}
-                  </p>
-                </Link>
+                {project.project_link ?
+                  <a href={project.project_link} target="blank" rel="noreferrer">
+                    <div className="py-3 h-80 flex justify-center align-middle">
+                      <img
+                        src={project.thumbnail}
+                        width={300}
+                        height={300}
+                        alt={project.title}
+                        className="object-contain max-h-full"
+                      />
+                    </div>
+                    <div className="text-gray-500 pb-2 pt-4">{new Date(project._createdAt).toLocaleDateString()}</div>
+                    <hr />
+                    <h4 className="text-xl font-semibold">{project.title} </h4>
+                    <p className="text-gray-500">
+                      {project.description}
+                    </p>
+                  </a> :
+                  <Link href={"/projects/" + project.slug}>
+                    <div className="py-3 h-80 flex justify-center align-middle">
+                      <img
+                        src={project.thumbnail}
+                        width={300}
+                        height={300}
+                        alt={project.title}
+                        className="object-contain max-h-full"
+                      />
+                    </div>
+                    <div className="text-gray-500 pb-2 pt-4">{new Date(project._createdAt).toLocaleDateString()}</div>
+                    <hr />
+                    <h4 className="text-xl font-semibold">{project.title} </h4>
+                    <p className="text-gray-500">
+                      {project.description}
+                    </p>
+                  </Link>
+                }
               </div>
             })}
           </div>
