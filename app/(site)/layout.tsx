@@ -180,7 +180,7 @@ export default function RootLayout({
               <div>Follow Me</div>
               <div className="text-sm text-gray-400">Let&apos;s be social. </div>
               <div>
-                <a href="http://www.linkedin.com/in/sanjay-bora-11710822b" target="_blank">
+                <a href="https://www.linkedin.com/in/sanjaybora04" target="_blank">
                   <span className="fa fa-linkedin text-gray-300 p-1 hover:text-gray-500 text-xl"></span>
                 </a>
                 <a href="https://github.com/sanjaybora04" target="_blank">
