@@ -5,8 +5,8 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Projects",
   description: "Sanjay bora | Projects Page",
-  alternates:{
-    canonical:"https://www.sanjaybora.tech/projects"
+  alternates: {
+    canonical: "https://www.sanjaybora.tech/projects"
   },
   openGraph: {
     type: "website",
@@ -52,29 +52,56 @@ export default async function Projects() {
       {/* Main Content Start */}
       <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
         {projects.map((project) => (
+          <div key={project._id} className="mx-2">
 
-          <Link href={project.project_link?project.project_link:"/projects/" + project.slug} className="mx-2" key={project._id}>
-            <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-              <div className="flex justify-center self-center">
-                <div className="w-72">
-                  <img
-                    className="my-3 rounded-lg"
-                    src={project.thumbnail}
-                    alt={project.title}
-                  />
+            {project.project_link ?
+              <a href={project.project_link} target="_blank" rel="noreferrer">
+                <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
+                  <div className="flex justify-center self-center">
+                    <div className="w-72">
+                      <img
+                        className="my-3 rounded-lg"
+                        src={project.thumbnail}
+                        alt={project.title}
+                      />
+                    </div>
+                  </div>
+                  <div className="sm:px-10 sm:min-w-min">
+                    <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500 py-3">
+                      {project.description}
+                    </p>
+                    <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="sm:px-10 sm:min-w-min">
-                <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                  {project.title}
-                </h3>
-                <p className="text-gray-500 py-3">
-                  {project.description}
-                </p>
-                <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
-              </div>
-            </div>
-          </Link>
+              </a> :
+              <Link href={"/projects/" + project.slug}>
+                <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
+                  <div className="flex justify-center self-center">
+                    <div className="w-72">
+                      <img
+                        className="my-3 rounded-lg"
+                        src={project.thumbnail}
+                        alt={project.title}
+                      />
+                    </div>
+                  </div>
+                  <div className="sm:px-10 sm:min-w-min">
+                    <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-500 py-3">
+                      {project.description}
+                    </p>
+                    <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
+                  </div>
+                </div>
+              </Link>
+            }
+          </div>
+
         ))}
 
       </section>
