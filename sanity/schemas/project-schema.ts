@@ -56,35 +56,7 @@ const project = {
     {
       name: "content",
       title: "Content",
-      type: "array",
-      of: [
-        { type: "block" },
-        {
-          name: "image",
-          title: "Image",
-          type: "image",
-          fields: [
-            {
-              name: "alt",
-              title: "Alt",
-              type: "string"
-            }
-          ]
-        },
-        {
-          name: 'Code',
-          title: 'Code',
-          type: 'code',
-        },
-        {
-          name: 'Element',
-          title: 'Element',
-          type: 'code',
-          options: {
-            language: 'html'
-          }
-        }
-      ]
+      type: "markdown",
     }
   ]
 }

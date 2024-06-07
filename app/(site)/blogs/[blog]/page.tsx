@@ -1,8 +1,9 @@
 import { Metadata } from "next";
-import { PortableText } from '@portabletext/react';
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
-import components from "@/app/(site)/components";
 import PageReader from "./page-reader";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import './blog.css'
 
 type Props = {
   params: {
@@ -42,7 +43,7 @@ const BlogPage = async ({ params }: Props) => {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
   return (
-    <div>
+    <div className="blog">
       {/* Start banner Section */}
       <section className="mt-[72px] h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">
@@ -57,7 +58,7 @@ const BlogPage = async ({ params }: Props) => {
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
         <img src={blog.thumbnail} alt={blog.title} className='my-5 sm:m-7 rounded-lg' />
-        <PortableText value={blog.content} components={components} />
+        <Markdown remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
       </section>
       {/* End Main Content Section */}
 

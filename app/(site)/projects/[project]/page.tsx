@@ -1,7 +1,6 @@
-import { Metadata } from "next";
-import { PortableText } from '@portabletext/react';
 import { getProject, getProjects } from "@/sanity/sanity-utils";
-import components from "@/app/(site)/components";
+import { Metadata } from "next";
+import Markdown from "react-markdown";
 
 type Props = {
   params: { project: string }
@@ -59,7 +58,7 @@ const Project = async ({ params }: Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
-        <PortableText value={project.content} components={components} />
+        <Markdown>{project.content}</Markdown>
       </section>
       {/* End Main Content Section */}
 

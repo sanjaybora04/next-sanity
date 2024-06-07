@@ -1,7 +1,9 @@
 import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
-import schemas from "./sanity/schemas"
 import {codeInput} from '@sanity/code-input'
+import { structureTool } from 'sanity/structure'
+import schemas from "./sanity/schemas"
+import { markdownSchema } from 'sanity-plugin-markdown/next';
+import 'easymde/dist/easymde.min.css'
 
 const config = defineConfig({
   projectId: "mdgpr7bk",
@@ -9,7 +11,7 @@ const config = defineConfig({
   title: "My Personal Website",
   apiVersion: "2023-03-09",
   basePath: "/admin",
-  plugins: [deskTool(),codeInput()],
+  plugins: [structureTool(),codeInput(), markdownSchema()],
   schema: { types: schemas }
 })
 

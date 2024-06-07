@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity"
-
 export type Project = {
   _id: string,
   _createdAt: Date,
@@ -9,5 +7,5 @@ export type Project = {
   project_link: string,
   keywords:Array<string>,
   thumbnail: string,
-  content: PortableTextBlock[]
+  content: string
 };

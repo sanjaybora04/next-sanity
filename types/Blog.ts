@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity"
-
 export type Blog = {
   _id: string,
   _createdAt: Date,
@@ -8,5 +6,6 @@ export type Blog = {
   description: string,
   keywords:Array<string>,
   thumbnail: string,
-  content: PortableTextBlock[]
+  markdown: string,
+  content: string
 };
