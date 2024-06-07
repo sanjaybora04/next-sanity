@@ -1,9 +1,10 @@
-import { Metadata } from "next";
+
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
 import PageReader from "./page-reader";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import './blog.css'
+import { Metadata } from "next";
 
 type Props = {
   params: {
