@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
             return new Response("Bad Request", { status: 400 });
         }
 
-        revalidatePath(`/${body._type}s`)
-        revalidatePath(`/${body._type}s/${body.slug?.current}`)
+        revalidatePath(`/${body._type}`)
+        revalidatePath(`/${body._type}/${body.slug?.current}`)
             if(body._type === 'project') {
                 revalidatePath(`/`)
             }
