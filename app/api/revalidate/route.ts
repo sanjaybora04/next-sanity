@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
         else if (body._type === 'blog') {
             revalidatePath(`/blog`)
             revalidatePath(`/blog/${body.slug?.current}`)
+            revalidatePath('/sitemap.xml')
         }
 
         return NextResponse.json({
