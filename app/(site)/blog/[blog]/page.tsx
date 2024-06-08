@@ -83,7 +83,7 @@ const BlogPage = async ({ params }: Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
-        <img src={blog.thumbnail} alt={blog.title} className='my-5 sm:m-7 rounded-lg' />
+        <img src={blog.thumbnail} alt={blog.title} className='my-5 sm:my-7 max-h-[70vh] mx-auto rounded-lg' />
         <Markdown remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
       </section>
       {/* End Main Content Section */}
