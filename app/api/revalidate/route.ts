@@ -6,12 +6,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     try {
         const { body, isValidSignature } = await parseBody<{
-            _type:string,
-            slug:{
-                current:string
+            _type: string,
+            slug: {
+                current: string
             }
         }>(req, process.env.NEXT_PUBLIC_SANITY_WEBHOOK_SECRET);
-        
+
         if (!isValidSignature) {
             return new Response("Invalid Signature", { status: 401 });
         }
@@ -20,11 +20,15 @@ export async function POST(req: NextRequest) {
             return new Response("Bad Request", { status: 400 });
         }
 
-        revalidatePath(`/${body._type}`)
-        revalidatePath(`/${body._type}/${body.slug?.current}`)
-            if(body._type === 'project') {
-                revalidatePath(`/`)
-            }
+        if (body._type === 'project') {
+            revalidatePath(`/`)
+            revalidatePath(`/projects`)
+            revalidatePath(`/projects/${body.slug?.current}`)
+        }
+        else if (body._type === 'blog') {
+            revalidatePath(`/blog`)
+            revalidatePath(`/blog/${body.slug?.current}`)
+        }
 
         return NextResponse.json({
             status: 200,
