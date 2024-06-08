@@ -33,7 +33,7 @@ export default async function Blogs() {
           "@type": "BlogPosting",
           "headline": blog.title,
           "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
-          "datePublished": new Date(blog._createdAt).toDateString(),
+          "dateModified": new Date(blog._updatedAt).toISOString(),
           "description": blog.description,
           "author": {
             "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
