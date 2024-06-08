@@ -6,6 +6,7 @@ import remarkGfm from "remark-gfm";
 import './blog.css'
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
   params: {
@@ -71,7 +72,7 @@ const BlogPage = async ({ params }: Props) => {
     <div className="blog">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
-      <section className="mt-[72px] h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
+      <section className="mt-[72px] h-52 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
@@ -83,8 +84,17 @@ const BlogPage = async ({ params }: Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
-        <img src={blog.thumbnail} alt={blog.title} className='my-5 sm:my-7 max-h-[70vh] mx-auto rounded-lg' />
-        <Markdown remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
+        <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh]"/>
+        <Markdown components={{
+          a: ({node, ...props}) => {
+            if(new URL(props.href!).origin===process.env.NEXT_PUBLIC_SITE_URL) {
+              return <Link href={props.href!}/>
+            }else{
+              return <a {...props} target="_blank"/>
+            }
+            
+          }
+        }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
       </section>
       {/* End Main Content Section */}
 
