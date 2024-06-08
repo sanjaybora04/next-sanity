@@ -98,8 +98,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-        {/* Google Analytics start */}
-        {/* Google tag (gtag.js) */}
+        {/* Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0C2T89RB7" />
         <script
           id='google-analytics'
@@ -113,7 +112,9 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Google Analytics end */}
+        {/* Adsense */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
+
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 sm:px-16 transition-shadow duration-500">

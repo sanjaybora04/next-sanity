@@ -24,14 +24,14 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
-  
+
   if (!blog) return notFound()
 
   return {
     title: blog.title,
     description: blog.description,
-    alternates:{
-      canonical:`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
     },
     openGraph: {
       images: [blog.thumbnail],
@@ -48,7 +48,7 @@ const BlogPage = async ({ params }: Props) => {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
 
-  if(!blog) return notFound()
+  if (!blog) return notFound()
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -66,7 +66,7 @@ const BlogPage = async ({ params }: Props) => {
       "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
     }
   }
-  
+
   return (
     <div className="blog">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
