@@ -52,8 +52,7 @@ const blog = {
       name: 'content',
       title: 'Content',
       type: 'markdown',
-    },
-    
+    }
   ]
 }
 

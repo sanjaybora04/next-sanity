@@ -70,10 +70,30 @@ export default function RootLayout({
     };
   }, []);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sanjay Bora",
+    "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`,
+    "url": process.env.NEXT_PUBLIC_SITEP_URL,
+    "sameAs": [
+      "https://www.linkedin.com/in/sanjaybora04",
+      "https://www.github.com/sanjaybora04",
+      "https://www.instagram.com/sanjaybora04",
+      "https://www.twitter.com/sanjaybora04"
+    ],
+    "jobTitle": "Software Developer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Freelancer",
+    }
+  }
+
 
   return (
     <html lang="en">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <link rel="icon" href="https://sanjaybora.tech/img/fav.png" />
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -121,9 +141,9 @@ export default function RootLayout({
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
                 About Me
               </Link>
-              <Link href="/blogs/"
+              <Link href="/blog/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">
-                Blogs
+                Blog
               </Link>
               <Link href="/projects/"
                 className="flex whitespace-nowrap p-1 px-2 m-2 my-4 text-white transition-colors duration-200 hover:text-blue-400 sm:inline sm:text-xs sm:font-semibold sm:text-gray-800 sm:m-1">

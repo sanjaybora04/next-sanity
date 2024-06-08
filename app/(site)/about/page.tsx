@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     canonical:"https://www.sanjaybora.tech/about"
   },
   openGraph: {
-    type: "website",
+    type: "profile",
     images: ["https://www.sanjaybora.tech/img/thumbnail.png"],
-    title: "About Me",
-    description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+    title: "About Sanjay Bora | Full Stack Developer",
+    description: "Welcome! I'm Sanjay Bora, a Full Stack Web Developer passionate about creating efficient web applications with React, Next.js, Node.js, and Express.js. Explore my journey and projects.",
     url: `https://www.sanjaybora.tech/about`,
   },
   authors: [{ name: "Sanjay Bora" }],
@@ -19,8 +19,20 @@ export const metadata: Metadata = {
 }
 
 export default async function About() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Sanjay Bora | Full Stack Developer",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+    "description": "Welcome! I'm Sanjay Bora, a Full Stack Web Developer passionate about creating efficient web applications with React, Next.js, Node.js, and Express.js. Explore my journey and projects.",
+    "mainEntity": {
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
+    }
+  }
+  
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
       <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">

@@ -6,7 +6,7 @@ import { markdownSchema } from 'sanity-plugin-markdown/next';
 import 'easymde/dist/easymde.min.css'
 
 const config = defineConfig({
-  projectId: "mdgpr7bk",
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: "production",
   title: "My Personal Website",
   apiVersion: "2023-03-09",

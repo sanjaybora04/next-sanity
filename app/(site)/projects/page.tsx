@@ -3,17 +3,17 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "Sanjay bora | Projects Page",
+  title: "Sanjay Bora | Projects",
+  description: "Explore the technology projects and tutorials created by Sanjay.",
   alternates: {
-    canonical: "https://www.sanjaybora.tech/projects"
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`
   },
   openGraph: {
     type: "website",
-    images: ["https://www.sanjaybora.tech/img/thumbnail.png"],
-    title: "Projects",
-    description: "Sanjay bora | Projects Page",
-    url: `https://www.sanjaybora.tech/projects`,
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/thumbnail.png`],
+    title: "Sanjay Bora | Projects",
+    description: "Explore the technology projects and tutorials created by Sanjay.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
   },
   authors: [{ name: "Sanjay Bora" }],
   keywords: ["sanjay bora projects", "projects"],
@@ -22,8 +22,25 @@ export const metadata: Metadata = {
 export default async function Projects() {
   const projects = await getProjects()
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Sanjay Bora | Projects",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
+    "description": "Explore the technology projects and tutorials created by Sanjay.",
+    "mainEntity": projects.map((project)=>({
+      "@type": "CreativeWork",
+      "name": project.title,
+      "url": project.project_link||`${process.env.NEXT_PUBLIC_SITE_URL}/projects/${project.slug}`,
+      "description": project.description,
+      "image": project.thumbnail
+    }))
+  }
+  
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
       <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">

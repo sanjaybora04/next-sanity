@@ -3,60 +3,38 @@ import { Metadata } from "next";
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Sanjay Bora | Web Developer",
-  description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
+  title: "Sanjay Bora | Full Stack Developer",
+  description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
   alternates: {
-    canonical: "https://www.sanjaybora.tech"
+    canonical: process.env.NEXT_PUBLIC_SITE_URL
   },
   openGraph: {
-    type: "website",
-    images: ["https://www.sanjaybora.tech/img/thumbnail.png"],
-    title: "Sanjay Bora | Web Developer",
-    description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
-    url: `https://www.sanjaybora.tech`,
+    type: "profile",
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/thumbnail.png`],
+    title: "Sanjay Bora | Full Stack Developer",
+    description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
   },
   authors: [{ name: "Sanjay Bora" }],
-  keywords: ["sanjay bora", "web developer freelance", "freelance web programmer", "hire freelance web developer", "freelance web developer rates"],
+  keywords: ["sanjay bora", "web developer freelance", "nextjs developer", "react developer", "fullstack developer"],
 
 }
 
-const structured_data = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Sanjay Bora",
-      "item": "https://www.sanjaybora.tech"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Projects",
-      "item": "https://www.sanjaybora.tech/projects"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Blogs",
-      "item": "https://www.sanjaybora.tech/blogs"
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": "About Me",
-      "item": "https://www.sanjaybora.tech/about"
-    }
-  ]
-}
 
 export default async function Home() {
-  const structuredData = JSON.stringify(structured_data)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sanjay Bora | Full Stack Developer",
+    "url": process.env.NEXT_PUBLIC_SITE_URL,
+    "description": "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
+    "mainEntityOfPage": `${process.env.NEXT_PUBLIC_SITE_URL}#person`,
+  }  
+
   const projects = (await getProjects()).slice(0, 3)
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start Banner Section */}
       <section className="flex h-[calc(100vh-72px)] items-center justify-between bg-slate-100">
         <div className="p-10 sm:px-20">

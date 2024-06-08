@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import './blog.css'
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -23,17 +24,20 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
+  
+  if (!blog) return notFound()
+
   return {
     title: blog.title,
     description: blog.description,
     alternates:{
-      canonical:`https://sanjaybora.tech/blogs/${slug}`
+      canonical:`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
     },
     openGraph: {
       images: [blog.thumbnail],
       title: blog.title,
       description: blog.description,
-      url: `https://sanjaybora.tech/blogs/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`,
     },
     authors: [{ name: "Sanjay Bora" }],
     keywords: blog.keywords,
@@ -43,8 +47,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const BlogPage = async ({ params }: Props) => {
   const slug = params.blog as string;
   const blog = await getBlog(slug);
+
+  if(!blog) return notFound()
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": blog.title,
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`,
+    "datePublished": new Date(blog._createdAt).toDateString(),
+    "description": blog.description,
+    "author": {
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
+    },
+    "image": blog.thumbnail,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
+    }
+  }
+  
   return (
     <div className="blog">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
       <section className="mt-[72px] h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">
