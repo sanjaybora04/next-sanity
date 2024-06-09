@@ -72,7 +72,7 @@ const BlogPage = async ({ params }: Props) => {
     <div className="blog">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
-      <section className="mt-[72px] h-52 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
+      <section className="mt-[72px] p-2 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
