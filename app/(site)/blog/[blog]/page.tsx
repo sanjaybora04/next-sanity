@@ -77,7 +77,7 @@ const BlogPage = async ({ params }: Props) => {
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
-          {/* <PageReader/> */}
+          <PageReader/>
         </div>
       </section>
       {/* End banner Section */}
