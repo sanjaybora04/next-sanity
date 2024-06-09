@@ -98,6 +98,8 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
+        {/* Google site verification */}
+        <meta name="google-site-verification" content="_pkFnCexnyNhaYel3eqz1L71RJ41maYnWEzOjT9E3zA" />
         {/* Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0C2T89RB7" />
         <script
