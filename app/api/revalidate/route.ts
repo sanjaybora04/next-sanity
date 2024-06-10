@@ -7,9 +7,18 @@ export async function POST(req: NextRequest) {
     try {
         const { body, isValidSignature } = await parseBody<{
             _type: string,
+            _createdAt: string,
+            _updatedAt: string,
             slug: {
                 current: string
-            }
+            },
+            thumbnail: {
+                asset: {
+                    _ref: string
+                }
+            },
+            title: string,
+            description: string,
         }>(req, process.env.NEXT_PUBLIC_SANITY_WEBHOOK_SECRET);
 
         if (!isValidSignature) {
@@ -20,6 +29,7 @@ export async function POST(req: NextRequest) {
             return new Response("Bad Request", { status: 400 });
         }
 
+        console.log(body)
         if (body._type === 'project') {
             revalidatePath(`/`)
             revalidatePath(`/projects`)
@@ -29,6 +39,32 @@ export async function POST(req: NextRequest) {
             revalidatePath(`/blog`)
             revalidatePath(`/blog/${body.slug?.current}`)
             revalidatePath('/sitemap.xml')
+
+            if (body._createdAt === body._updatedAt) {
+                await fetch('https://api.brevo.com/v3/emailCampaigns', {
+                    method: 'POST',
+                    headers: {
+                        accept: 'application/json',
+                        'content-type': 'application/json',
+                        'api-key': process.env.NEXT_PUBLIC_BREVO_API_KEY!
+                    },
+                    body: JSON.stringify({
+                        sender: { name: 'Sanjay', email: 'borasanju81@gmail.com' },
+                        recipients: { listIds: [2] },
+                        params: {
+                            title: body.title,
+                            description: body.description,
+                            thumbnail: `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/production/${body.thumbnail.asset._ref.split('-').slice(1).join('-').replace(/-(?=[^-]*$)/, '.')}`,
+                            url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${body.slug?.current}`
+                        },
+                        templateId: 6,
+                        replyTo: 'sanjaybora380@gmail.com',
+                        name: body.title,
+                        subject: 'New Blog Post',
+                        previewText: body.title
+                    })
+                })
+            }
         }
 
         return NextResponse.json({
