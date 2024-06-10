@@ -77,24 +77,31 @@ const BlogPage = async ({ params }: Props) => {
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
-          <PageReader/>
+          <PageReader />
         </div>
       </section>
       {/* End banner Section */}
 
       {/* Start Main Content Section */}
       <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
-        <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh]"/>
+        <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh]" />
         <Markdown components={{
-          a: ({node, ...props}) => {
-            if(new URL(props.href!).origin===process.env.NEXT_PUBLIC_SITE_URL) {
-              return <Link href={props.href!}/>
-            }else{
-              return <a {...props} target="_blank"/>
+          a: ({ node, ...props }) => {
+            if (new URL(props.href!).origin === process.env.NEXT_PUBLIC_SITE_URL) {
+              return <Link href={props.href!} />
+            } else {
+              return <a {...props} target="_blank" />
             }
-            
+
           }
         }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
+  
+        <h3>Support</h3>
+        <p>
+          Thank you for reading! If you enjoyed this post and want to support my work, consider
+          <a href="https://www.paypal.com/paypalme/sanjaybora04" target="_blank"> supporting me</a> or sharing this post with a friend.
+        </p>
+
       </section>
       {/* End Main Content Section */}
 
