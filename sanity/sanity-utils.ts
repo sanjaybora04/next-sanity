@@ -14,7 +14,7 @@ export async function getBlogs(): Promise<Blog[]> {
       "slug": slug.current,
       description,
       "thumbnail": thumbnail.asset->url
-    }`
+    }| order(_createdAt desc)`
   )
 }
 
@@ -46,7 +46,7 @@ export async function getProjects(): Promise<Project[]> {
       description,
       project_link,
       "thumbnail": thumbnail.asset->url
-    }`
+    }| order(_createdAt desc)`
   )
 }
 
