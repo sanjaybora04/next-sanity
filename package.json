@@ -20,7 +20,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
-    "react-page-reader": "^1.1.2",
+    "react-page-reader": "^1.1.5",
     "remark-gfm": "^4.0.0",
     "sanity": "^3.45.0",
     "sanity-plugin-markdown": "^4.1.2",
