@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
                     },
                     body: JSON.stringify({
                         sender: { name: 'Sanjay', email: 'borasanju81@gmail.com' },
-                        recipients: { listIds: [2] },
+                        recipients: { listIds: [4] },
                         params: {
                             title: body.title,
                             description: body.description,
