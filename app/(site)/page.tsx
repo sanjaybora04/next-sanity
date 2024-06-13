@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "profile",
+    siteName: "Sanjay",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/thumbnail.png`],
     title: "Sanjay Bora | Full Stack Developer",
     description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",

@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       images: [blog.thumbnail],
+      siteName: "Sanjay",
       title: blog.title,
       description: blog.description,
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`,

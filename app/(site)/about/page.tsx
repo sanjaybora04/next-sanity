@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "profile",
+    siteName: "Sanjay",
     images: ["https://www.sanjaybora.tech/img/thumbnail.png"],
     title: "About Sanjay Bora | Full Stack Developer",
     description: "Welcome! I'm Sanjay Bora, a Full Stack Web Developer passionate about creating efficient web applications with React, Next.js, Node.js, and Express.js. Explore my journey and projects.",
