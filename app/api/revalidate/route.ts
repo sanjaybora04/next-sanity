@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
                         'api-key': process.env.NEXT_PUBLIC_BREVO_API_KEY!
                     },
                     body: JSON.stringify({
-                        sender: { name: 'Sanjay', email: 'borasanju81@gmail.com' },
+                        sender: { name: 'Sanjay Bora', email: 'borasanju81@gmail.com' },
                         recipients: { listIds: [4] },
                         params: {
                             title: body.title,

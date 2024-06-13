@@ -7,6 +7,7 @@ import './blog.css'
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Giscus from "./giscus";
 
 type Props = {
   params: {
@@ -102,8 +103,27 @@ const BlogPage = async ({ params }: Props) => {
           <a href="https://www.paypal.com/paypalme/sanjaybora04" target="_blank"> supporting me</a> or sharing this post with a friend.
         </p>
 
+<div className="mt-5">
+
+      <Giscus
+        id="comments"
+        repo="sanjaybora04/next-sanity"
+        repoId=""
+        category="General"
+        categoryId="DIC_kwDOJtdWp84CgD7K"
+        mapping="pathname"
+        term="Welcome to the comments section! Have you read the post? What do you think? Let me know in the comments below!"
+        reactionsEnabled="1"
+        emitMetadata='0'
+        inputPosition='top'
+        theme='light'
+        lang='en'
+        loading="lazy"
+        />
+        </div>
       </section>
       {/* End Main Content Section */}
+
 
     </div>
   )
