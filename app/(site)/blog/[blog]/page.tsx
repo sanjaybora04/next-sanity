@@ -96,30 +96,30 @@ const BlogPage = async ({ params }: Props) => {
 
           }
         }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
-  
+
         <h3>Support</h3>
         <p>
           Thank you for reading! If you enjoyed this post and want to support my work, consider
           <a href="https://www.paypal.com/paypalme/sanjaybora04" target="_blank"> supporting me</a> or sharing this post with a friend.
         </p>
 
-<div className="mt-5">
+        <div className="mt-10">
 
-      <Giscus
-        id="comments"
-        repo="sanjaybora04/next-sanity"
-        repoId="R_kgDOJtdWpw"
-        category="General"
-        categoryId="DIC_kwDOJtdWp84CgD7K"
-        mapping="pathname"
-        term="Welcome to the comments section! Have you read the post? What do you think? Let me know in the comments below!"
-        reactionsEnabled="1"
-        emitMetadata='0'
-        inputPosition='bottom'
-        theme='light'
-        lang='en'
-        loading="lazy"
-        />
+          <Giscus
+            id="comments"
+            repo="sanjaybora04/next-sanity"
+            repoId="R_kgDOJtdWpw"
+            category="General"
+            categoryId="DIC_kwDOJtdWp84CgD7K"
+            mapping="pathname"
+            term="Welcome to the comments section! Have you read the post? What do you think? Let me know in the comments below!"
+            reactionsEnabled="1"
+            emitMetadata='0'
+            inputPosition='bottom'
+            theme='light'
+            lang='en'
+            loading="lazy"
+          />
         </div>
       </section>
       {/* End Main Content Section */}

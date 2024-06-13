@@ -29,35 +29,34 @@ export default async function Home() {
     "url": process.env.NEXT_PUBLIC_SITE_URL,
     "description": "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
     "mainEntityOfPage": `${process.env.NEXT_PUBLIC_SITE_URL}#person`,
-  }  
+  }
 
   const projects = (await getProjects()).slice(0, 3)
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start Banner Section */}
-      <section className="flex h-[calc(100vh-72px)] items-center justify-between bg-slate-100">
-        <div className="p-10 sm:px-20">
+      <section className="flex flex-col md:flex-row h-[calc(100vh-72px)] items-center justify-between bg-slate-100">
+        <div className="p-10 sm:pl-20">
           <h5 className="text-xl font-semibold">I am</h5>
-          <h1 className="text-3xl font-extrabold mt-3 mb-10">Sanjay Bora</h1>
+          <h1 className="text-3xl font-extrabold mt-3 mb-5">Sanjay Bora</h1>
           <div className="text-gray-500 italic">
             <div className="inline">
               <div className="inline text-blue-400 text-xl">“ </div>
-              Code is like humor. When you have to explain it, it&apos;s bad.
+              Crafting Seamless Digital Experiences: Expert Full Stack Web Developer
               <div className="inline text-blue-400 text-xl"> ” </div>
             </div>
-            <div className="inline text-blue-400">- CORY HOUSE</div>
           </div>
           <Link
-            href="/projects/"
+            href="/projects"
             className="inline-block uppercase px-8 py-2 mt-3 text-white bg-gradient-to-r from-indigo-400 to-blue-400"
           >
             My Projects
           </Link>
         </div>
-        {/* <div class="col-lg-6 col-md-6 col-xs-6 banner-right align-self-center">
-			<img src="/Assets/img/github.jpg" class="p-10">
-		</div> */}
+        <div className=" flex-1 overflow-hidden md:flex-auto md:h-full w-full md:w-auto">
+          <img src="/img/me.png" className="h-full mx-auto object-contain" />
+        </div>
       </section>
       {/* End banner Section */}
       {/* Start Personal Details Section */}
@@ -67,24 +66,10 @@ export default async function Home() {
             <h2 className="uppercase text-4xl font-bold">Personal Details</h2>
             <blockquote className="p-5 border-l-2 border-indigo-400 text-gray-500">
               <p className="p-3">
-                I&apos;m a freelance web developer with a passion for deep learning. I
-                specialize in building web applications that leverage the latest
-                technologies to provide engaging and dynamic user experiences. In
-                addition, I have experience in developing and implementing deep
-                learning algorithms to solve complex problems.
+              I am a passionate Full Stack Web Developer with extensive experience in designing, developing, and maintaining robust web applications. My expertise lies in leveraging technologies such as React, Next.js, Node.js, and Express.js to create responsive and dynamic interfaces that enhance user engagement and satisfaction. Throughout my career, I have successfully implemented RESTful APIs for smooth client-server communication and utilized MongoDB, SQL, and Sequelize for efficient database management.
               </p>
               <p className="p-3">
-                On this blog, I share some of the projects I&apos;ve worked on, both in
-                web development and deep learning. My goal is to showcase my skills
-                and experience while providing insights into the development process
-                and offering practical advice for fellow developers. Whether you&apos;re
-                interested in web development, deep learning, or both, I hope you&apos;ll
-                find something useful and informative here.
-              </p>
-              <p className="p-3">
-                Thank you for stopping by, and feel free to contact me if you have
-                any questions or would like to discuss a potential project. Let&apos;s
-                create something amazing together!
+              I have a strong background in cloud services, particularly AWS, ensuring scalability and uptime for applications. Collaborating closely with cross-functional teams, including UI/UX designers, I strive to deliver user-friendly interfaces that optimize user experiences. My dedication to continuous learning drives me to explore and integrate new technologies, enhancing development workflows and staying ahead in the ever-evolving tech landscape. Passionate about crafting seamless digital experiences, I am committed to delivering innovative solutions that meet project goals and exceed expectations.
               </p>
             </blockquote>
             <Link
@@ -124,12 +109,11 @@ export default async function Home() {
                     </svg>
                   </div>
                   <a>
-                    <h4 className="p-3 text-xl font-semibold">Web Development</h4>
+                    <h4 className="p-3 text-xl font-semibold">Frontend Development</h4>
                   </a>
                 </div>
                 <p className="text-sm text-gray-500">
-                  From frontend design to backend development, I enjoy building
-                  dynamic and user-friendly web applications
+                Crafting responsive and engaging user interfaces using React and Next.js, enhancing user experience across devices.
                 </p>
               </div>
             </div>
@@ -148,12 +132,11 @@ export default async function Home() {
                     </svg>
                   </div>
                   <a>
-                    <h4 className="p-3 text-xl font-semibold">Machine Learning</h4>
+                    <h4 className="p-3 text-xl font-semibold">Backend Development</h4>
                   </a>
                 </div>
                 <p className="text-sm text-gray-500">
-                  Using machine learning algorithms to tackle complex problems and
-                  improve performance
+                Building scalable server-side applications with Node.js and Express.js, proficient in MongoDB and SQL for efficient data management.
                 </p>
               </div>
             </div>
@@ -173,12 +156,11 @@ export default async function Home() {
                     </svg>
                   </div>
                   <a>
-                    <h4 className="p-3 text-xl font-semibold">Computer vision</h4>
+                    <h4 className="p-3 text-xl font-semibold">Cloud Computing</h4>
                   </a>
                 </div>
                 <p className="text-sm text-gray-500">
-                  Developing algorithms that can interpret and understand visual
-                  data from the world around us
+                Leveraging AWS and cloud services for deploying robust, scalable applications, ensuring high performance and global accessibility.
                 </p>
               </div>
             </div>
@@ -205,71 +187,71 @@ export default async function Home() {
             <div className="w-80">
               <h4 className="text-center pt-5 text-xl font-semibold">
                 {" "}
-                Web Development{" "}
+                Frontend Development{" "}
               </h4>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Mern Stack - 5</p>
+                <p className="text-gray-500 text-right">Next.js - 5</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[100%]"></div>
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Tailwind Css - 5</p>
-                <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[100%]"></div>
-                </div>
-              </div>
-              <div className="p-3">
-                <p className="text-gray-500 text-right">Html, Css, Js - 4</p>
+                <p className="text-gray-500 text-right">React - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
+                </div>
+              </div>
+              <div className="p-3">
+                <p className="text-gray-500 text-right">Responsive Design - 5</p>
+                <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
+                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[100%]"></div>
                 </div>
               </div>
             </div>
             <div className="w-80">
               <h4 className="text-center pt-5 text-xl font-semibold">
-                Machine Learning
+                Backend Development
               </h4>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Python - 5</p>
+                <p className="text-gray-500 text-right">Express.js - 5</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[100%]"></div>
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Transformers - 3</p>
+                <p className="text-gray-500 text-right">Sequelize - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[60%]"></div>
+                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Pytorch - 4</p>
+                <p className="text-gray-500 text-right">Mongodb - 3</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
+                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[60%]"></div>
                 </div>
               </div>
             </div>
             <div className="w-80">
               <h4 className="text-center pt-5 text-xl font-semibold">
                 {" "}
-                Computer vision{" "}
+                Cloud Computing{" "}
               </h4>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Opencv - 4</p>
+                <p className="text-gray-500 text-right">Aws - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Transfer Learning - 3</p>
+                <p className="text-gray-500 text-right">Scalability - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[60%]"></div>
+                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">CNN&apos;s - 3</p>
+                <p className="text-gray-500 text-right">Relaibility - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
-                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[60%]"></div>
+                  <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
                 </div>
               </div>
             </div>
