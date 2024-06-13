@@ -108,14 +108,14 @@ const BlogPage = async ({ params }: Props) => {
       <Giscus
         id="comments"
         repo="sanjaybora04/next-sanity"
-        repoId=""
+        repoId="R_kgDOJtdWpw"
         category="General"
         categoryId="DIC_kwDOJtdWp84CgD7K"
         mapping="pathname"
         term="Welcome to the comments section! Have you read the post? What do you think? Let me know in the comments below!"
         reactionsEnabled="1"
         emitMetadata='0'
-        inputPosition='top'
+        inputPosition='bottom'
         theme='light'
         lang='en'
         loading="lazy"
