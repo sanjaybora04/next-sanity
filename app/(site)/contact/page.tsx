@@ -1,8 +1,37 @@
 import { ArrowRightIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
+export const metadata = {
+    title: "Contact Me",
+    description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
+    alternates: {
+        canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+    },
+    openGraph: {
+        type: "website",
+        siteName: "Sanjay",
+        images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/contact.jpg`],
+        title: "Contact Sanjay Bora | Full Stack Developer",
+        description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+    },
+    authors: [{ name: "Sanjay Bora" }],
+    keywords: ["contact sanjay bora", "contact"],
+}
+
 export default function Page(){
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Sanjay Bora | Full Stack Developer",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+    "description": "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
+    "mainEntity": {
+      "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
+    }
+  }
     return <div>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     {/* Start banner Section */}
     <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">

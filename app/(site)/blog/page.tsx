@@ -7,12 +7,12 @@ export const metadata: Metadata = {
     title: "Sanjay Bora | Blog",
     description: "Read the latest technology news and tutorials by Sanjay.",
     alternates: {
-        canonical: process.env.NEXT_PUBLIC_SITE_URL + "/blog",
+        canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
     },
     openGraph: {
         type: "website",
         siteName: "Sanjay",
-        images: [process.env.NEXT_PUBLIC_SITE_URL + "/img/thumbnail.png"],
+        images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/blog.jpg`],
         title: "Sanjay Bora | Blog",
         description: "Read the latest technology news and tutorials by Sanjay.",
         url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,

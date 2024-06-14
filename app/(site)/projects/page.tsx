@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Sanjay",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/thumbnail.png`],
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/projects.jpg`],
     title: "Sanjay Bora | Projects",
     description: "Explore the technology projects and tutorials created by Sanjay.",
     url: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
