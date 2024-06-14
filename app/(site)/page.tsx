@@ -320,7 +320,7 @@ export default async function Home() {
               </a>
             </div>
             <div className="w-80 m-3 p-3 shadow-lg flex justify-center transition-all duration-400 hover:scale-110 hover:bg-blue-400">
-              <a href="https://github.com/sanjaybora04" target="_blank">
+              <a href="https://linkedin.com/in/sanjaybora04" target="_blank">
                 <div className="text-center">
                   <img
                     src="/img/linkedin.jpg"
