@@ -268,7 +268,7 @@ export default async function Home() {
                       {project.description}
                     </p>
                   </a> :
-                  <Link href={"/projects" + project.slug}>
+                  <Link href={"/projects/" + project.slug}>
                     <div className="py-3 h-80 flex justify-center align-middle">
                       <img
                         src={project.thumbnail}
