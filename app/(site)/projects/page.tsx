@@ -59,7 +59,7 @@ export default async function Projects() {
             >
               <path d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
-            <Link href="/projects/" className="hover:underline">
+            <Link href="/projects" className="hover:underline">
               {" "}
               Projects
             </Link>
@@ -95,7 +95,7 @@ export default async function Projects() {
                   </div>
                 </div>
               </a> :
-              <Link href={"/projects/" + project.slug}>
+              <Link href={"/projects" + project.slug}>
                 <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
                   <div className="flex justify-center self-center">
                     <div className="w-72">

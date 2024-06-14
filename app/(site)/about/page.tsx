@@ -51,7 +51,7 @@ export default async function About() {
             >
               <path d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
-            <Link href="/about/" className="hover:underline">
+            <Link href="/about" className="hover:underline">
               {" "}
               About Me
             </Link>

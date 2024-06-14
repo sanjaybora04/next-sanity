@@ -75,7 +75,7 @@ export default async function Home() {
               </p>
             </blockquote>
             <Link
-              href="/about/"
+              href="/about"
               className="inline-block uppercase px-5 py-2 mt-3 text-white bg-indigo-400"
             >
               About me
@@ -268,7 +268,7 @@ export default async function Home() {
                       {project.description}
                     </p>
                   </a> :
-                  <Link href={"/projects/" + project.slug}>
+                  <Link href={"/projects" + project.slug}>
                     <div className="py-3 h-80 flex justify-center align-middle">
                       <img
                         src={project.thumbnail}
