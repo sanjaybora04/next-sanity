@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
             revalidatePath(`/blog/${body.slug?.current}`)
             revalidatePath('/sitemap.xml')
 
-            if (body._createdAt === body._updatedAt) {
+            if (body._createdAt === body._updatedAt) {  // this logic wont work if the blog has been in draft for long
                 await fetch('https://api.brevo.com/v3/emailCampaigns', {
                     method: 'POST',
                     headers: {
