@@ -68,23 +68,6 @@ export default function Page(){
             </p>
           </div>
         </div>
-        {/* Phone Section */}
-        <div className="flex items-center">
-          <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-            <PhoneIcon className="w-6 h-6 text-white"/>
-          </div>
-          <div className="ml-4">
-            <h2 className="text-lg font-semibold text-gray-800">Phone</h2>
-            <p className="text-gray-600">
-              <a
-                href="tel:+919548983448"
-                className="text-green-500 hover:underline"
-              >
-                +91 9548983448
-              </a>
-            </p>
-          </div>
-        </div>
         {/* LinkedIn Section */}
         <div className="flex items-center">
           <div className="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center">
