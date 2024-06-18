@@ -1,7 +1,7 @@
 import { defineConfig } from 'sanity';
 import {codeInput} from '@sanity/code-input'
 import { structureTool } from 'sanity/structure'
-import schemas from "./sanity/schemas"
+import schemas from "./schemas"
 import { markdownSchema } from 'sanity-plugin-markdown/next';
 import 'easymde/dist/easymde.min.css'
 

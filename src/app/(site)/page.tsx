@@ -1,4 +1,4 @@
-import { getProjects } from "@/sanity/sanity-utils";
+import { getProjects } from "@//sanity/sanity-utils";
 import { Metadata } from "next";
 import Link from "next/link"
 import { CloudIcon, GlobeAltIcon, ServerStackIcon } from '@heroicons/react/24/outline'

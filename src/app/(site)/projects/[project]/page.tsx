@@ -1,4 +1,4 @@
-import { getProject, getProjects } from "@/sanity/sanity-utils";
+import { getProject, getProjects } from "@//sanity/sanity-utils";
 import { Metadata } from "next";
 import Markdown from "react-markdown";
 

@@ -1,7 +1,7 @@
 import { createClient, groq } from "next-sanity";
 import clientConfig from './config/client-config'
-import { Blog } from "@/types/Blog";
-import { Project } from "@/types/Project";
+import { Blog } from "@//types/Blog";
+import { Project } from "@//types/Project";
 
 
 export async function getBlogs(): Promise<Blog[]> {
