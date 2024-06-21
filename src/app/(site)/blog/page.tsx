@@ -73,30 +73,19 @@ export default async function Blogs() {
             {/* End banner Section */}
             {/* Main Content Start */}
             <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
+                <div className="flex gap-5 flex-wrap justify-center">
+
                 {blogs.map((blog) => (
-                    <Link href={"/blog/" + blog.slug} key={blog._id}>
-                        <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-                            <div className="flex justify-center self-center">
-                                <div className="w-72">
-                                    <img
-                                        className="my-3 rounded-lg"
-                                        src={blog.thumbnail}
-                                        alt={blog.title}
-                                    />
-                                </div>
-                            </div>
-                            <div className="sm:px-10 sm:min-w-min">
-                                <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                                    {blog.title}
-                                </h3>
-                                <p className="text-gray-500 py-3">
-                                    {blog.description}
-                                </p>
-                                <p className="text-gray-500 py-3">{new Date(blog._createdAt).toLocaleDateString()}</p>
-                            </div>
+                    <Link href={`/blog/${blog.slug}`} key={blog._id} className="w-80 shadow-lg rounded-lg">
+                        <img src={blog.thumbnail} className="rounded-lg" />
+                        <div className="p-2">
+                        <h3 className="text-xl font-semibold group-hover:text-indigo-500 text-ellipsis line-clamp-2">{blog.title}</h3>
+                        <p className="text-gray-500 mt-3 text-ellipsis line-clamp-3">{blog.description}</p>
                         </div>
+
                     </Link>
                 ))}
+                </div>
             </section>
             {/*Main Content End*/}
         </>
