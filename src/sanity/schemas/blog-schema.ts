@@ -1,3 +1,5 @@
+import categories from "../config/categories";
+
 const blog = {
   name: "blog",
   title: "Blogs",
@@ -41,6 +43,15 @@ const blog = {
       }
     },
     {
+      name: "categories",
+      title: "Categories",
+      type: "array",
+      of: [{ type: "string" }],
+      options: {
+        list: categories
+      }
+    },
+    {
       name: 'keywords',
       title: 'Keywords',
       type: 'array',
@@ -52,6 +63,15 @@ const blog = {
       name: 'content',
       title: 'Content',
       type: 'markdown',
+    }
+  ],
+  orderings: [
+    {
+      title: "3d printing",
+      name: "3d_printing",
+      by: [
+        { field: "categories", }
+      ]
     }
   ]
 }

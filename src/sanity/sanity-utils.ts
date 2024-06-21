@@ -13,6 +13,7 @@ export async function getBlogs(): Promise<Blog[]> {
       title,
       "slug": slug.current,
       description,
+      categories,
       "thumbnail": thumbnail.asset->url
     }| order(_createdAt desc)`
   )

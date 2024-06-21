@@ -5,6 +5,7 @@ export type Blog = {
   title: string,
   slug: string,
   description: string,
+  categories: Array<string>,
   keywords:Array<string>,
   thumbnail: string,
   markdown: string,

@@ -1,3 +1,5 @@
+import Blogs from "@/components/blogs";
+import categories from "@/sanity/config/categories";
 import { getBlogs } from "@/sanity/sanity-utils"
 import { Metadata } from "next";
 import Link from "next/link";
@@ -21,27 +23,28 @@ export const metadata: Metadata = {
     keywords: ["sanjay bora blog", "blog"],
 }
 
-export default async function Blogs() {
+export default async function Page() {
     const blogs = await getBlogs()
-    
-    const jsonLd:any = {
+
+    const jsonLd: any = {
         "@context": "https://schema.org",
         "@type": "Blog",
         "name": "Sanjay Bora | Blog",
         "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
         "description": "Read the latest technology news and tutorials by Sanjay.",
         "blogPost": blogs.map((blog) => ({
-          "@type": "BlogPosting",
-          "headline": blog.title,
-          "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
-          "dateModified": new Date(blog._updatedAt).toISOString(),
-          "description": blog.description,
-          "author": {
-            "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
-          },
-          "image": blog.thumbnail
+            "@type": "BlogPosting",
+            "headline": blog.title,
+            "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`,
+            "dateModified": new Date(blog._updatedAt).toISOString(),
+            "description": blog.description,
+            "author": {
+                "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
+            },
+            "image": blog.thumbnail
         }))
-      }
+    }
+    console.log(blogs)
 
     return (
         <>
@@ -72,21 +75,7 @@ export default async function Blogs() {
             </section>
             {/* End banner Section */}
             {/* Main Content Start */}
-            <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
-                <div className="flex gap-5 flex-wrap justify-center">
-
-                {blogs.map((blog) => (
-                    <Link href={`/blog/${blog.slug}`} key={blog._id} className="w-80 shadow-lg rounded-lg">
-                        <img src={blog.thumbnail} className="rounded-lg" />
-                        <div className="p-2">
-                        <h3 className="text-xl font-semibold group-hover:text-indigo-500 text-ellipsis line-clamp-2">{blog.title}</h3>
-                        <p className="text-gray-500 mt-3 text-ellipsis line-clamp-3">{blog.description}</p>
-                        </div>
-
-                    </Link>
-                ))}
-                </div>
-            </section>
+            <Blogs blogs={blogs} />
             {/*Main Content End*/}
         </>
     )
