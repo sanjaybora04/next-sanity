@@ -117,6 +117,7 @@ export default function RootLayout({
         />
         {/* Adsense */}
         <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
 
       </head>
       <body>
@@ -177,7 +178,7 @@ export default function RootLayout({
                 This website was built with nextjs and sanity.io based on a theme from Colorlib.
               </div>
               <div className="text-sm text-gray-400">
-                Copyright © 2023 sanjaybora.tech | All Rights Reserved | Content may not be reproduced or used without permission.
+                Copyright © 2024 sanjaybora.vercel.app | All Rights Reserved | Content may not be reproduced or used without permission.
               </div>
             </div>
           </div>
