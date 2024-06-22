@@ -1,4 +1,5 @@
 
+import categories from '@/sanity/config/categories'
 import { getBlogs } from '@/sanity/sanity-utils'
 import { MetadataRoute } from 'next'
 
@@ -37,6 +38,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 1,
         }
     ]
+
+    categories.forEach((category) => {
+        sitemap.push({
+            url: `${process.env.NEXT_PUBLIC_SITE_URL!}/blog?category=${category.value}`,
+            lastModified: new Date(),
+            changeFrequency: 'daily',
+            priority: 0.9,
+        })
+    })
 
     blogs.forEach((blog) => {
         sitemap.push({

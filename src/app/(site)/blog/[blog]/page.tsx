@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Giscus from "./giscus";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   params: {
@@ -79,6 +80,20 @@ const BlogPage = async ({ params }: Props) => {
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
+          <p className="text-sm">
+            <Link href="/" className="!text-white hover:underline">
+              Home{" "}
+            </Link>
+            <ArrowRightIcon className="!text-white inline w-5 h-5" />
+            <Link href="/blog" className="!text-white hover:underline">
+              {" "}
+              Blog
+            </Link>
+            <ArrowRightIcon className="!text-white inline w-5 h-5" />
+            <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
+              {" "+blog.title}
+            </Link>
+          </p>
           <PageReader />
         </div>
       </section>

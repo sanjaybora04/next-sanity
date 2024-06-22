@@ -3,17 +3,30 @@
 import categories from "@/sanity/config/categories"
 import { Blog } from "@/types/Blog"
 import Link from "next/link"
+import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function Blogs({ blogs }: { blogs: Blog[] }) {
+    const searchParams = useSearchParams()
+    const router = useRouter()
     const [selectedCategory, setSelectedCategory] = useState<string>()
+
+    function onCategoryChange(e: React.ChangeEvent<HTMLSelectElement>) {
+        setSelectedCategory(e.target.value)
+        router.push(`/blog${e.target.value ? `?category=${e.target.value}` : ''}`)
+    }
+
+    useEffect(() => {
+        const category = searchParams?.get('category')
+        if (category) setSelectedCategory(category)
+    }, [searchParams])
     return (
         <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
 
             <div className="flex justify-center mb-5">
                 <div className="flex items-center gap-2">
                     <div>Categories:</div>
-                    <select onChange={(e) => { setSelectedCategory(e.target.value); console.log(e.target.value) }} className="w-40 p-2 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                    <select value={selectedCategory} onChange={onCategoryChange} className="w-40 p-2 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
                         <option value={''}>All</option>
                         {categories.map((category) => (
                             <option key={category.value} value={category.value}>
