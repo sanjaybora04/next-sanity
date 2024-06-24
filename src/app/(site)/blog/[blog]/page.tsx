@@ -1,6 +1,5 @@
 
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
-import PageReader from "./page-reader";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import './blog.css'
@@ -94,7 +93,6 @@ const BlogPage = async ({ params }: Props) => {
               {" "+blog.title}
             </Link>
           </p>
-          <PageReader />
         </div>
       </section>
       {/* End banner Section */}
