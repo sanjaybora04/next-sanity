@@ -2,6 +2,7 @@
 import '@/globals.css'
 import { useEffect } from 'react'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function RootLayout({
   children,
@@ -116,6 +117,12 @@ export default function RootLayout({
         />
         {/* Adsense */}
         <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
+        <Script 
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821"
+          crossOrigin='anonymous'
+          strategy='lazyOnload'
+        />
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 md:px-16 transition-shadow duration-500">

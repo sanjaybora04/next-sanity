@@ -36,7 +36,6 @@ export default async function Home() {
   const projects = (await getProjects()).slice(0, 3)
   return (
     <>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start Banner Section */}
       <section className="flex flex-col md:flex-row h-[calc(100vh-72px)] items-center justify-between bg-slate-100">
