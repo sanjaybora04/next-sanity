@@ -46,6 +46,7 @@ const Project = async ({ params }: Props) => {
 
   return (
     <div>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
       {/* Start banner Section */}
       <section className="mt-[72px] h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
         <div className="text-center">

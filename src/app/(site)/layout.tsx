@@ -88,7 +88,6 @@ export default function RootLayout({
     }
   }
 
-
   return (
     <html lang="en">
       <head>
@@ -117,8 +116,6 @@ export default function RootLayout({
         />
         {/* Adsense */}
         <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
-
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 md:px-16 transition-shadow duration-500">

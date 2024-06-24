@@ -41,6 +41,7 @@ export default async function Projects() {
 
   return (
     <>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821" crossOrigin="anonymous"></script>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
       <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
