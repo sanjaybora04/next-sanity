@@ -29,6 +29,12 @@ const categories = [
         description: "Learn Next.js with Sanjay.",
         keywords: ["next.js", "nextjs", "next js", "blog"],
     },
+    {
+        title: "DIY",
+        value: "diy",
+        description: "Learn how to do it yourself with Sanjay.",
+        keywords: ["diy", "do it yourself", "diy projects", "blog"],
+    }
 ]
 
 export default categories;
