@@ -94,7 +94,7 @@ const BlogPage = async ({ params }: Props) => {
               {" "+blog.title}
             </Link>
           </p>
-          <PageReader />
+          {/* <PageReader /> */}
         </div>
       </section>
       {/* End banner Section */}
