@@ -103,7 +103,7 @@ const BlogPage = async ({ params }: Props) => {
         <Markdown components={{
           a: ({ node, ...props }) => {
             if (new URL(props.href!).origin === process.env.NEXT_PUBLIC_SITE_URL) {
-              return <Link href={props.href!} />
+              return <Link href={props.href!} >{props.children}</Link>
             } else {
               return <a {...props} target="_blank" />
             }

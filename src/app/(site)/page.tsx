@@ -226,7 +226,7 @@ export default async function Home() {
                 </div>
               </div>
               <div className="p-3">
-                <p className="text-gray-500 text-right">Relaibility - 4</p>
+                <p className="text-gray-500 text-right">Reliability - 4</p>
                 <div className="w-full bg-gray-300 rounded-full h-2 mb-4">
                   <div className="bg-gradient-to-r from-indigo-400 to-blue-400 h-2 rounded-full w-[80%]"></div>
                 </div>
