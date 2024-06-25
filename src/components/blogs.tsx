@@ -41,7 +41,7 @@ export default function Blogs({ blogs }: { blogs: Blog[] }) {
                     if (!selectedCategory || blog.categories?.includes(selectedCategory!))
                         return (
                             <Link href={`/blog/${blog.slug}`} key={blog._id} className="w-80 shadow-lg rounded-lg">
-                                <img src={blog.thumbnail} className="rounded-lg aspect-video object-contain bg-indigo-500" />
+                                <img src={blog.thumbnail} className="rounded-lg aspect-video object-cover bg-indigo-500" />
                                 <div className="p-2">
                                     <h3 className="text-xl font-semibold group-hover:text-indigo-500 text-ellipsis line-clamp-2">{blog.title}</h3>
                                     <p className="text-gray-500 mt-3 text-ellipsis line-clamp-3">{blog.description}</p>
