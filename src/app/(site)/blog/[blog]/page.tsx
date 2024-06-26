@@ -113,8 +113,7 @@ const BlogPage = async ({ params }: Props) => {
 
         <h3>Support</h3>
         <p>
-          Thank you for reading! If you enjoyed this post and want to support my work, consider
-          <a href="https://www.paypal.com/paypalme/sanjaybora04" target="_blank"> supporting me</a> or sharing this post with a friend.
+          Thank you for reading! If you enjoyed this post and want to support my work, consider supporting me by subscribing to my newsletter or sharing this post with a friend.
         </p>
 
         <div className="mt-10">
