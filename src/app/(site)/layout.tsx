@@ -124,11 +124,14 @@ export default function RootLayout({
           strategy='lazyOnload'
         />
         {/* Hydro */}
-        <script id="hydro_config" type="text/javascript" dangerouslySetInnerHTML={{__html:`
+        { /* eslint-disable-next-line react/no-danger */}
+        <script id="hydro_config" type="text/javascript" dangerouslySetInnerHTML={{
+          __html: `
           window.Hydro_tagId = "92efb7ba-529d-46c5-b64d-5e51bbf344f9";
           `}}>
         </script>
-        <script id="hydro_script" src="https://track.hydro.online/"></script>
+        { /* eslint-disable-next-line react/no-danger */}
+        <script async id="hydro_script" src="https://track.hydro.online/"></script>
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 md:px-16 transition-shadow duration-500">
