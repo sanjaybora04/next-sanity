@@ -117,12 +117,18 @@ export default function RootLayout({
         />
         {/* Adsense */}
         <meta name="google-adsense-account" content="ca-pub-1622367531310821"></meta>
-        <Script 
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1622367531310821"
           crossOrigin='anonymous'
           strategy='lazyOnload'
         />
+        {/* Hydro */}
+        <script id="hydro_config" type="text/javascript" dangerouslySetInnerHTML={{__html:`
+          window.Hydro_tagId = "92efb7ba-529d-46c5-b64d-5e51bbf344f9";
+          `}}>
+        </script>
+        <script id="hydro_script" src="https://track.hydro.online/"></script>
       </head>
       <body>
         <header id="header" className="fixed z-[999] bg-white top-0 flex w-full justify-between p-3 md:px-16 transition-shadow duration-500">
