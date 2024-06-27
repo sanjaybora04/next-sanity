@@ -15,7 +15,7 @@ export async function getBlogs(): Promise<Blog[]> {
       description,
       categories,
       "thumbnail": thumbnail.asset->url
-    }| order(_createdAt desc)`
+    }| order(_updatedAt desc)`
   )
 }
 
