@@ -38,7 +38,7 @@ export default function Blogs({ blogs }: { blogs: Blog[] }) {
             </div>
             <div className="flex gap-5 flex-wrap justify-center">
                 {blogs.map((blog) => {
-                    if (!selectedCategory || blog.categories?.includes(selectedCategory!))
+                    if (blog.categories && !selectedCategory || blog.categories?.includes(selectedCategory!))
                         return (
                             <Link href={`/blog/${blog.slug}`} key={blog._id} className="w-80 shadow-lg rounded-lg">
                                 <img src={blog.thumbnail} className="rounded-lg aspect-video object-cover bg-indigo-500" />
