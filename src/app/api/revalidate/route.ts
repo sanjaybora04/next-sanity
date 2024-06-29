@@ -29,16 +29,15 @@ export async function POST(req: NextRequest) {
             return new Response("Bad Request", { status: 400 });
         }
 
-        console.log(body)
         if (body._type === 'project') {
             revalidatePath(`/`)
             revalidatePath(`/projects`)
             revalidatePath(`/projects/${body.slug?.current}`)
         }
         else if (body._type === 'blog') {
+            revalidatePath('/sitemap.xml')
             revalidatePath(`/blog`)
             revalidatePath(`/blog/${body.slug?.current}`)
-            revalidatePath('/sitemap.xml')
 
             if (body._createdAt === body._updatedAt) {  // this logic wont work if the blog has been in draft for long
                 await fetch('https://api.brevo.com/v3/emailCampaigns', {
