@@ -1,4 +1,3 @@
-
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -8,6 +7,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Giscus from "./giscus";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import PageReader from "./page-reader";
 
 type Props = {
   params: {
@@ -92,6 +92,7 @@ const BlogPage = async ({ params }: Props) => {
             <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
               {" "+blog.title}
             </Link>
+            <PageReader/>
           </p>
         </div>
       </section>
