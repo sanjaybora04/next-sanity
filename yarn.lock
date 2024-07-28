@@ -7528,10 +7528,10 @@ react-markdown@^9.0.1:
     unist-util-visit "^5.0.0"
     vfile "^6.0.0"
 
-react-page-reader@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-page-reader/-/react-page-reader-1.1.5.tgz#6039789645fac89349e9d5777bd57e96b2828993"
-  integrity sha512-E1N/uG0Y20BLDX3TQivFvXkTmoJNcuzAcVBUrbb36xkrx9G1Hv3VE0N7wdwfBsWGFtW58Vv8jTcIDSqdCbnW5w==
+react-page-reader@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-page-reader/-/react-page-reader-1.1.6.tgz#21daf5e11672c6314fe1d64ad17e82c95649f4db"
+  integrity sha512-Jud+boOgsGJ07mfreO5hFTqsm/9BwrufMMQzlwkN29mq22WWikx3nEXSOmjbvgrjNKfOR5iCviC6gZyIP8RMiQ==
   dependencies:
     styled-components "^6.1.11"
 
@@ -8468,9 +8468,9 @@ style-to-object@^1.0.0:
     inline-style-parser "0.2.3"
 
 styled-components@^6.1.11:
-  version "6.1.11"
-  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.11.tgz#01948e5195bf1d39e57e0a85b41958c80e40cfb8"
-  integrity sha512-Ui0jXPzbp1phYij90h12ksljKGqF8ncGx+pjrNPsSPhbUUjWT2tD1FwGo2LF6USCnbrsIhNngDfodhxbegfEOA==
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-6.1.12.tgz#0d9d511aacfb9052936146dcc2856559e6fae4df"
+  integrity sha512-n/O4PzRPhbYI0k1vKKayfti3C/IGcPf+DqcrOB7O/ab9x4u/zjqraneT5N45+sIe87cxrCApXM8Bna7NYxwoTA==
   dependencies:
     "@emotion/is-prop-valid" "1.2.2"
     "@emotion/unitless" "0.8.1"
