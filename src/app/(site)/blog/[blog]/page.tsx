@@ -93,9 +93,9 @@ const BlogPage = async ({ params }: Props) => {
             <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
               {" "+blog.title}
             </Link>
-            <div className="mt-2">
+            {/* <div className="mt-2">
             <PageReader/>
-            </div>
+            </div> */}
           </p>
         </div>
       </section>
