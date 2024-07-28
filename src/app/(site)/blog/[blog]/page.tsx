@@ -17,11 +17,11 @@ type Props = {
 
 export async function generateStaticParams() {
   const blogs = await getBlogs()
-
   return blogs.map((blog) => ({
     blog: blog.slug,
   }))
 }
+
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.blog as string;
@@ -46,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: blog.keywords,
   };
 }
+
 
 const BlogPage = async ({ params }: Props) => {
   const slug = params.blog as string;
@@ -92,14 +93,16 @@ const BlogPage = async ({ params }: Props) => {
             <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
               {" "+blog.title}
             </Link>
+            <div className="mt-2">
             <PageReader/>
+            </div>
           </p>
         </div>
       </section>
       {/* End banner Section */}
 
       {/* Start Main Content Section */}
-      <section id="content" className="m-8 sm:mx-20 md:mx-32 lg:mx-40 leading-relaxed tracking-wide">
+      <section id="content" className="mx-auto md:w-[768px] p-2 leading-relaxed tracking-wide">
         <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh]" />
         <Markdown components={{
           a: ({ node, ...props }) => {

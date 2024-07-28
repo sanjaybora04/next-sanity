@@ -53,7 +53,7 @@
 
 /* Images */
 .blog img {
-    @apply my-5 sm:my-7 max-h-[50vh] mx-auto rounded-lg;
+    @apply my-5 sm:my-7 max-h-[60vh] mx-auto rounded-lg;
 }
 
 /* Code */
