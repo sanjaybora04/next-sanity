@@ -127,16 +127,11 @@ export default function PageReader() {
   }
 
   useEffect(() => {
-    // Constructing selector to exclude tags whose parent is already in allowedtags
-    const selector = allowedtags.map(tag => `#content ${tag}:not(${allowedtags.map(parent => `${parent} ${tag}`).join(', ')})`).join(', ');
+    
+  }, []);
 
-    // Select elements using the constructed selector
-    lines = document.querySelectorAll(selector);
-
-    utterance.addEventListener('boundary', function (e) {
-      position = e.charIndex;
-    });
-
+  // Check browser compatibility
+  useEffect(() => {
     // handle Click outside the toggle window
     function handleClick(e: Event) {
       const target = e.target
@@ -181,6 +176,20 @@ export default function PageReader() {
       }
     }
 
+    
+    if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
+      populateVoices()
+      // Constructing selector to exclude tags whose parent is already in allowedtags
+    const selector = allowedtags.map(tag => `#content ${tag}:not(${allowedtags.map(parent => `${parent} ${tag}`).join(', ')})`).join(', ');
+
+    // Select elements using the constructed selector
+    lines = document.querySelectorAll(selector);
+
+    utterance.addEventListener('boundary', function (e) {
+      position = e.charIndex;
+    });
+
+
     speechSynthesis.onvoiceschanged = (): void => {
       populateVoices();
     };
@@ -200,12 +209,6 @@ export default function PageReader() {
       document.getElementById('page-reader-speed')?.removeEventListener('change', handleSpeedChange);
       document.getElementById('page-reader-voices')?.removeEventListener('change', handleVoicesChange);
     };
-  }, []);
-
-  // Check browser compatibility
-  useEffect(() => {
-    if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
-      populateVoices()
     } else {
       alert('Text-to-speech is not supported in this browser.');
     }
