@@ -7,7 +7,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Giscus from "./giscus";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import PageReader from "./page-reader";
+import dynamic from "next/dynamic";
+const PageReader = dynamic(() => import("./page-reader"), { ssr: false });
 
 type Props = {
   params: {
@@ -93,9 +94,9 @@ const BlogPage = async ({ params }: Props) => {
             <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
               {" "+blog.title}
             </Link>
-            {/* <div className="mt-2">
+            <div className="mt-2">
             <PageReader/>
-            </div> */}
+            </div>
           </p>
         </div>
       </section>

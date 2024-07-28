@@ -3,7 +3,6 @@
 import dynamic from 'next/dynamic'
 
 const Giscus = dynamic(() => import('@giscus/react').then(mod => mod), {
-    loading: () => <p>Loading Giscus...</p>,
     ssr: false
 })
 
