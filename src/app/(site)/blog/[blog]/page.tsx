@@ -8,7 +8,10 @@ import Link from "next/link";
 import Giscus from "./giscus";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import dynamic from "next/dynamic";
-const PageReader = dynamic(() => import("./page-reader"), { ssr: false });
+const PageReader = dynamic(() => import("./page-reader"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>
+});
 
 type Props = {
   params: {
