@@ -126,10 +126,6 @@ export default function PageReader() {
     }
   }
 
-  useEffect(() => {
-    
-  }, []);
-
   // Check browser compatibility
   useEffect(() => {
     // handle Click outside the toggle window
@@ -176,39 +172,38 @@ export default function PageReader() {
       }
     }
 
-    
+
     if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
       populateVoices()
-      // Constructing selector to exclude tags whose parent is already in allowedtags
-    const selector = allowedtags.map(tag => `#content ${tag}:not(${allowedtags.map(parent => `${parent} ${tag}`).join(', ')})`).join(', ');
 
-    // Select elements using the constructed selector
-    lines = document.querySelectorAll(selector);
+      const selector = allowedtags.map(tag => `#content ${tag}`).join(', ');
 
-    utterance.addEventListener('boundary', function (e) {
-      position = e.charIndex;
-    });
+      // Select elements using the constructed selector
+      lines = document.querySelectorAll(selector);
 
-
-    speechSynthesis.onvoiceschanged = (): void => {
-      populateVoices();
-    };
-
-    document.addEventListener('click', handleClick);
-    document.addEventListener('keydown', handleKeyDown);
-    document.getElementById('page-reader-speed')?.addEventListener('change', handleSpeedChange);
-    document.getElementById('page-reader-voices')?.addEventListener('change', handleVoicesChange);
-
-
-    return () => {
-      utterance.removeEventListener('boundary', function (e) {
+      utterance.addEventListener('boundary', function (e) {
         position = e.charIndex;
       });
-      document.removeEventListener('click', handleClick);
-      document.removeEventListener('keydown', handleKeyDown);
-      document.getElementById('page-reader-speed')?.removeEventListener('change', handleSpeedChange);
-      document.getElementById('page-reader-voices')?.removeEventListener('change', handleVoicesChange);
-    };
+
+      speechSynthesis.onvoiceschanged = (): void => {
+        populateVoices();
+      };
+
+      document.addEventListener('click', handleClick);
+      document.addEventListener('keydown', handleKeyDown);
+      document.getElementById('page-reader-speed')?.addEventListener('change', handleSpeedChange);
+      document.getElementById('page-reader-voices')?.addEventListener('change', handleVoicesChange);
+
+
+      return () => {
+        utterance.removeEventListener('boundary', function (e) {
+          position = e.charIndex;
+        });
+        document.removeEventListener('click', handleClick);
+        document.removeEventListener('keydown', handleKeyDown);
+        document.getElementById('page-reader-speed')?.removeEventListener('change', handleSpeedChange);
+        document.getElementById('page-reader-voices')?.removeEventListener('change', handleVoicesChange);
+      };
     } else {
       alert('Text-to-speech is not supported in this browser.');
     }
