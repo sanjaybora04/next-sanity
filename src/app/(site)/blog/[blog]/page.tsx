@@ -83,7 +83,7 @@ const BlogPage = async ({ params }: Props) => {
           <h1 className="text-3xl font-bold text-white p-3">
             {blog.title}
           </h1>
-          <p className="text-sm">
+          <div className="text-sm">
             <Link href="/" className="!text-white hover:underline">
               Home{" "}
             </Link>
@@ -99,7 +99,7 @@ const BlogPage = async ({ params }: Props) => {
             <div className="mt-2">
             <PageReader/>
             </div>
-          </p>
+          </div>
         </div>
       </section>
       {/* End banner Section */}
