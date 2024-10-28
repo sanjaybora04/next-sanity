@@ -101,6 +101,16 @@ export default function RootLayout({
 
         {/* Google site verification */}
         <meta name="google-site-verification" content="_pkFnCexnyNhaYel3eqz1L71RJ41maYnWEzOjT9E3zA" />
+        {/* Microsoft clarity */}
+        <script type="text/javascript" dangerouslySetInnerHTML={{
+          __html:`
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "opi8s15nru");
+      `
+    }}/>
         {/* Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0C2T89RB7" />
         <script
