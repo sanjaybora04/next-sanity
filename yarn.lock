@@ -7454,6 +7454,11 @@ raf@^3.4.1:
   dependencies:
     performance-now "^2.1.0"
 
+react-chatbotify@^2.0.0-beta.26:
+  version "2.0.0-beta.26"
+  resolved "https://registry.yarnpkg.com/react-chatbotify/-/react-chatbotify-2.0.0-beta.26.tgz#5070de7b057ec724ac4d8fa7ecfb07a85639cccf"
+  integrity sha512-WZFiF4Siwy3jMdnJjsaHvn0d36abiApg+E6fyXbdurmpZLKTJSfH5kmnmkgutHexDTLJIEZi0Gm3HXA2EYDRfA==
+
 react-clientside-effect@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.6.tgz#29f9b14e944a376b03fb650eed2a754dd128ea3a"

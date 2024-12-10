@@ -1,8 +1,9 @@
 'use client'
 import '@/globals.css'
 import { useEffect } from 'react'
-import Link from 'next/link'
+import MyChatBot from '@/components/chatbot'
 import Script from 'next/script'
+import Link from 'next/link'
 
 export default function RootLayout({
   children,
@@ -233,6 +234,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <MyChatBot/>
       </body>
     </html>
   )
