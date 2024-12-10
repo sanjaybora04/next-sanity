@@ -190,7 +190,7 @@ const MyChatBot = () => {
           <div className="flex gap-2">Health: {playerStats.health}
             <div className=" border border-black rounded-lg flex gap-1 p-1">
               {Array.from({length:Math.round(playerStats.health/10)}).map((_,index)=>(
-                <div className="w-2 h-5 bg-black"></div>
+                <div key={index} className="w-2 h-5 bg-black"></div>
               ))}
             </div>
           </div>
