@@ -184,7 +184,7 @@ const MyChatBot = () => {
 
   return <div>
     {gameon &&
-      <div className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-30 z-[9999] flex justify-center items-center">
+      <div className="hidden fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-30 z-[9999] sm:flex justify-center items-center">
         <div className="bg-white shadow-2xl rounded-lg p-2 border border-primary -translate-x-1/2 text-lg font-semibold">
           <div>Name: {playerStats.name}</div>
           <div className="flex gap-2">Health: {playerStats.health}
