@@ -30,7 +30,8 @@ export async function getBlog(slug: string): Promise<Blog> {
       description,
       keywords,
       "thumbnail": thumbnail.asset->url,
-      content
+      content,
+      body
     }`,
     { slug }
   )

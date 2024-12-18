@@ -1,3 +1,5 @@
+import { TypedObject } from "sanity";
+
 export type Blog = {
   _id: string,
   _createdAt: Date,
@@ -9,5 +11,6 @@ export type Blog = {
   keywords:Array<string>,
   thumbnail: string,
   markdown: string,
-  content: string
+  content: string,
+  body: TypedObject[]
 };

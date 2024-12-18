@@ -1,13 +1,15 @@
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import './blog.css'
+// import './blog.css'
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Giscus from "./giscus";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import dynamic from "next/dynamic";
+import { PortableText } from "next-sanity";
+import portableTextComponents from "@/components/portable-text-components";
 const PageReader = dynamic(() => import("./page-reader"), {
   ssr: false
 });
@@ -106,8 +108,8 @@ const BlogPage = async ({ params }: Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="mx-auto md:w-[768px] p-2 leading-relaxed tracking-wide">
-        <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh]" />
-        <Markdown components={{
+        <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh] mx-auto" />
+        {/* <Markdown components={{
           a: ({ node, ...props }) => {
             if (new URL(props.href!).origin === process.env.NEXT_PUBLIC_SITE_URL) {
               return <Link href={props.href!} >{props.children}</Link>
@@ -116,9 +118,11 @@ const BlogPage = async ({ params }: Props) => {
             }
 
           }
-        }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown>
+        }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown> */}
 
-        <h3>Support</h3>
+        <PortableText value={blog.body} components={portableTextComponents} />
+
+        <h3 className="text-3xl font-semibold my-5">Support</h3>
         <p>
           Thank you for reading! If you enjoyed this post and want to support my work, consider supporting me by subscribing to my newsletter or sharing this post with a friend.
         </p>
