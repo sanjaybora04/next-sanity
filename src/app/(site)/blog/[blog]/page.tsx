@@ -108,7 +108,9 @@ const BlogPage = async ({ params }: Props) => {
 
       {/* Start Main Content Section */}
       <section id="content" className="mx-auto md:w-[768px] p-2 leading-relaxed tracking-wide">
+        {blog.youtube?<iframe src={"http://www.youtube.com/embed/"+blog.youtube} className="w-full aspect-video max-h-70vh"/>:
         <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh] mx-auto" />
+        }
         {/* <Markdown components={{
           a: ({ node, ...props }) => {
             if (new URL(props.href!).origin === process.env.NEXT_PUBLIC_SITE_URL) {

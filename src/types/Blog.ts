@@ -10,7 +10,6 @@ export type Blog = {
   categories: Array<string>,
   keywords:Array<string>,
   thumbnail: string,
-  markdown: string,
-  content: string,
+  youtube: string,
   body: TypedObject[]
 };

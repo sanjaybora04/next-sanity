@@ -30,17 +30,14 @@ const blog = {
       ]
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: "youtube",
+      title: "YouTube",
       type: "string"
     },
     {
-      name: 'structured_data',
-      title: 'Structured Data',
-      type: 'code',
-      options: {
-        language: "json"
-      }
+      name: 'description',
+      title: 'Description',
+      type: "string"
     },
     {
       name: "categories",
@@ -58,11 +55,6 @@ const blog = {
       of: [
         { type: 'string' }
       ]
-    },
-    {
-      name: 'content',
-      title: 'Content',
-      type: 'markdown',
     },
     {
       name: 'body',
