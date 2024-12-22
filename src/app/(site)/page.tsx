@@ -7,19 +7,19 @@ export const metadata: Metadata = {
   title: "Sanjay Bora | Full Stack Developer",
   description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL
+    canonical: '/'
   },
   openGraph: {
-    type: "profile",
-    siteName: "Sanjay",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/home.jpg`],
     title: "Sanjay Bora | Full Stack Developer",
     description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
-    url: process.env.NEXT_PUBLIC_SITE_URL,
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/home.jpg`],
+    url: '/',
   },
-  authors: [{ name: "Sanjay Bora" }],
+  twitter: {
+    title: "Sanjay Bora | Full Stack Developer",
+    description: "Experienced in React, Next.js, Node.js, and Express.js. Specializes in AWS, RESTful APIs, responsive design, and MongoDB. Explore my portfolio and skills.",
+  },
   keywords: ["sanjay bora", "web developer freelance", "nextjs developer", "react developer", "fullstack developer"],
-
 }
 
 

@@ -5,15 +5,17 @@ export const metadata: Metadata = {
   title: "About Me",
   description: "I am a freelance web developer, with a passion for deep learning. I specialize in building dynamic and responsive web applications.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/about`
+    canonical: `/about`
   },
   openGraph: {
-    type: "profile",
-    siteName: "Sanjay",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/about.jpg`],
+    images: [`/img/about.jpg`],
     title: "About Sanjay Bora | Full Stack Developer",
     description: "Welcome! I'm Sanjay Bora, a Full Stack Web Developer passionate about creating efficient web applications with React, Next.js, Node.js, and Express.js. Explore my journey and projects.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+    url: `/about`,
+  },
+  twitter:{
+    title: "About Sanjay Bora | Full Stack Developer",
+    description: "Welcome! I'm Sanjay Bora, a Full Stack Web Developer passionate about creating efficient web applications with React, Next.js, Node.js, and Express.js. Explore my journey and projects.",
   },
   authors: [{ name: "Sanjay Bora" }],
   keywords: ["about sanjay bora", "sanjay bora"],

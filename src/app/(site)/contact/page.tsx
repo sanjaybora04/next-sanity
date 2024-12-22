@@ -2,24 +2,26 @@ import { ArrowRightIcon, EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/out
 import Link from "next/link";
 
 export const metadata = {
-    title: "Contact Me",
+  title: "Contact Me",
+  description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
+  alternates: {
+    canonical: `/contact`,
+  },
+  openGraph: {
+    images: [`/img/contact.jpg`],
+    title: "Contact Sanjay Bora | Full Stack Developer",
     description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
-    alternates: {
-        canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
-    },
-    openGraph: {
-        type: "website",
-        siteName: "Sanjay",
-        images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/contact.jpg`],
-        title: "Contact Sanjay Bora | Full Stack Developer",
-        description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
-        url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
-    },
-    authors: [{ name: "Sanjay Bora" }],
-    keywords: ["contact sanjay bora", "contact"],
+    url: `/contact`,
+  },
+  twitter: {
+    title: "Contact Sanjay Bora | Full Stack Developer",
+    description: "Get in touch with Sanjay Bora for web development projects, collaborations, or queries.",
+  },
+  authors: [{ name: "Sanjay Bora" }],
+  keywords: ["contact sanjay bora", "contact"],
 }
 
-export default function Page(){
+export default function Page() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -30,25 +32,25 @@ export default function Page(){
       "@id": `${process.env.NEXT_PUBLIC_SITE_URL}#person`
     }
   }
-    return <div>
+  return <div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     {/* Start banner Section */}
     <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-white">Contact Me</h1>
-          <p className="text-white text-sm pt-3">
-            <Link href="/" className="hover:underline">
-              Home{" "}
-            </Link>
-            <ArrowRightIcon className="inline w-5 h-5"/>
-            <Link href="/contact" className="hover:underline">
-              {" "}
-              Contact Me
-            </Link>
-          </p>
-        </div>
-      </section>
-      {/* End banner Section */}
+      <div className="text-center">
+        <h1 className="text-4xl font-bold text-white">Contact Me</h1>
+        <p className="text-white text-sm pt-3">
+          <Link href="/" className="hover:underline">
+            Home{" "}
+          </Link>
+          <ArrowRightIcon className="inline w-5 h-5" />
+          <Link href="/contact" className="hover:underline">
+            {" "}
+            Contact Me
+          </Link>
+        </p>
+      </div>
+    </section>
+    {/* End banner Section */}
     <div className="max-w-3xl mx-auto my-14 bg-white shadow-lg rounded-lg p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Email Section */}
@@ -94,5 +96,5 @@ export default function Page(){
       </div>
     </div>
   </div>
-  
+
 }

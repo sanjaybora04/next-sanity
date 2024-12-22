@@ -6,15 +6,17 @@ export const metadata: Metadata = {
   title: "Sanjay Bora | Projects",
   description: "Explore the technology projects and tutorials created by Sanjay.",
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`
+    canonical: `/projects`
   },
   openGraph: {
-    type: "website",
-    siteName: "Sanjay",
-    images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/projects.jpg`],
+    images: [`/img/projects.jpg`],
     title: "Sanjay Bora | Projects",
     description: "Explore the technology projects and tutorials created by Sanjay.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
+    url: `/projects`,
+  },
+  twitter: {
+    title: "Sanjay Bora | Projects",
+    description: "Explore the technology projects and tutorials created by Sanjay.",
   },
   authors: [{ name: "Sanjay Bora" }],
   keywords: ["sanjay bora projects", "projects"],
@@ -29,15 +31,15 @@ export default async function Projects() {
     "name": "Sanjay Bora | Projects",
     "url": `${process.env.NEXT_PUBLIC_SITE_URL}/projects`,
     "description": "Explore the technology projects and tutorials created by Sanjay.",
-    "mainEntity": projects.map((project)=>({
+    "mainEntity": projects.map((project) => ({
       "@type": "CreativeWork",
       "name": project.title,
-      "url": project.project_link||`${process.env.NEXT_PUBLIC_SITE_URL}/projects/${project.slug}`,
+      "url": project.project_link || `${process.env.NEXT_PUBLIC_SITE_URL}/projects/${project.slug}`,
       "description": project.description,
       "image": project.thumbnail
     }))
   }
-  
+
 
   return (
     <>

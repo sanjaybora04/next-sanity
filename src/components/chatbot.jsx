@@ -147,9 +147,8 @@ const MyChatBot = () => {
       },
     },
     game_over: {
-      message: `⚰️ Game Over! ${
-        playerStats.health <= 0 ? "You died in the dungeon." : "You survived but chose to leave."
-      }`,
+      message: `⚰️ Game Over! ${playerStats.health <= 0 ? "You died in the dungeon." : "You survived but chose to leave."
+        }`,
       component: (
         <div
           style={{
@@ -177,7 +176,7 @@ const MyChatBot = () => {
       },
     },
   };
-  
+
 
 
 
@@ -189,7 +188,7 @@ const MyChatBot = () => {
           <div>Name: {playerStats.name}</div>
           <div className="flex gap-2">Health: {playerStats.health}
             <div className=" border border-black rounded-lg flex gap-1 p-1">
-              {Array.from({length:Math.round(playerStats.health/10)}).map((_,index)=>(
+              {Array.from({ length: Math.round(playerStats.health / 10) }).map((_, index) => (
                 <div key={index} className="w-2 h-5 bg-black"></div>
               ))}
             </div>
@@ -199,7 +198,26 @@ const MyChatBot = () => {
         </div>
       </div>
     }
-    <ChatBot flow={flow} settings={{ botBubble: { simStream: true } }} />
+    <ChatBot flow={flow}
+      styles={
+        {
+          footerStyle: {
+            display: 'none'
+          },
+        }
+      }
+    settings={
+      {
+        chatButton: {
+          icon: '/img/chatbot.png'
+        },
+        header: {
+          avatar: '/img/chatbot.png',
+          title: ''
+        },
+        botBubble: { simStream: true }
+      }
+    } />
   </div>;
 };
 

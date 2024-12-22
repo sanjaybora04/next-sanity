@@ -1,24 +1,12 @@
 import { getBlog, getBlogs } from "@/sanity/sanity-utils";
-import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-// import './blog.css'
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Giscus from "./giscus";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import dynamic from "next/dynamic";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "@/components/portable-text-components";
-const PageReader = dynamic(() => import("./page-reader"), {
-  ssr: false
-});
-
-type Props = {
-  params: {
-    blog: string
-  }
-}
+import PageReader from "@/components/page-reader";
 
 export async function generateStaticParams() {
   const blogs = await getBlogs()
@@ -28,8 +16,8 @@ export async function generateStaticParams() {
 }
 
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.blog as string;
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const slug = params.blog;
   const blog = await getBlog(slug);
 
   if (!blog) return notFound()
@@ -38,23 +26,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: blog.title,
     description: blog.description,
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`
+      canonical: `/blog/${slug}`
     },
     openGraph: {
       images: [blog.thumbnail],
-      siteName: "Sanjay",
       title: blog.title,
       description: blog.description,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`,
+      url: `/blog/${slug}`,
     },
+    twitter:{
+      title: blog.title,
+      description: blog.description,
+    }, 
     authors: [{ name: "Sanjay Bora" }],
     keywords: blog.keywords,
   };
 }
 
 
-const BlogPage = async ({ params }: Props) => {
-  const slug = params.blog as string;
+const BlogPage = async ({ params }: any) => {
+  const slug = params.blog;
   const blog = await getBlog(slug);
 
   if (!blog) return notFound()
@@ -111,16 +102,6 @@ const BlogPage = async ({ params }: Props) => {
         {blog.youtube?<iframe src={"https://www.youtube.com/embed/"+blog.youtube} className="w-full aspect-video max-h-70vh"/>:
         <img src={blog.thumbnail} alt={blog.title} className="!max-h-[70vh] mx-auto" />
         }
-        {/* <Markdown components={{
-          a: ({ node, ...props }) => {
-            if (new URL(props.href!).origin === process.env.NEXT_PUBLIC_SITE_URL) {
-              return <Link href={props.href!} >{props.children}</Link>
-            } else {
-              return <a {...props} target="_blank" />
-            }
-
-          }
-        }} remarkPlugins={[remarkGfm]}>{blog.content}</Markdown> */}
 
         <PortableText value={blog.body} components={portableTextComponents} />
 

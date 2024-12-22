@@ -6,24 +6,26 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 // Metadata for page
-export async function generateMetadata({ searchParams }: { searchParams: any}): Promise<Metadata> {
+export async function generateMetadata({ searchParams }: { searchParams: any }): Promise<Metadata> {
     const category = categories.find(obj => obj.value == searchParams.category)
     return {
         title: category ? `${category?.title} blog | Sanjay Bora` : 'Blog | Sanjay Bora',
-        description: category?.description||"Read the latest technology news and tutorials by Sanjay.",
+        description: category?.description || "Read the latest technology news and tutorials by Sanjay.",
         alternates: {
-            canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blog${category ? `?category=${category?.value}` : ''}`,
+            canonical: `/blog${category ? `?category=${category?.value}` : ''}`,
         },
         openGraph: {
-            type: "website",
-            siteName: "Sanjay Bora",
-            images: [`${process.env.NEXT_PUBLIC_SITE_URL}/img/blog.webp`],
+            images: [`/img/blog.webp`],
             title: category ? `${category?.title} blog | Sanjay Bora` : 'Blog | Sanjay Bora',
-            description: category?.description||"Read the latest technology news and tutorials by Sanjay.",
-            url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog${category ? `?category=${category?.value}` : ''}`,
+            description: category?.description || "Read the latest technology news and tutorials by Sanjay.",
+            url: `/blog${category ? `?category=${category?.value}` : ''}`,
+        },
+        twitter: {
+            title: category ? `${category?.title} blog | Sanjay Bora` : 'Blog | Sanjay Bora',
+            description: category?.description || "Read the latest technology news and tutorials by Sanjay.",
         },
         authors: [{ name: "Sanjay Bora" }],
-        keywords: category?.keywords||["sanjay bora blog", "blog"],
+        keywords: category?.keywords || ["sanjay bora blog", "blog"],
     }
 }
 
