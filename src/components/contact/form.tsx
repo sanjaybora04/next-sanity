@@ -20,7 +20,7 @@ import axios from "axios"
 import { toast } from "sonner"
 
 const formSchema = z.object({
-    name: z.string().min(1, {message: "Required"}),
+    name: z.string().min(1, { message: "Required" }),
     email: z.string().email(),
     message: z.string()
 })
@@ -39,71 +39,73 @@ export function ContactForm() {
     // 2. Define a submit handler.
     async function onSubmit(values: z.infer<typeof formSchema>) {
         const id = toast.loading('Submitting...')
-        try{
-            const res = await axios.post('/api/submit',{
+        try {
+            const res = await axios.post('/api/submit', {
                 ...values,
-                referrerUrl:document.referrer,
+                referrerUrl: document.referrer,
                 sourceUrl: window.location.href
             })
-            if(res.status==200){
-                toast.success('Form Submitted Successfully🎉',{id})
-            }else{
-                toast.error('Error Submitting form!!',{id})
+            if (res.status == 200) {
+                toast.success('Form Submitted Successfully🎉', { id })
+            } else {
+                toast.error('Error Submitting form!!', { id })
             }
-        }catch(e){
-            toast.error('Error Submitting form!!',{id})
+        } catch (e) {
+            toast.error('Error Submitting form!!', { id })
         }
     }
 
     return (
-        <Card className="max-w-lg mx-auto m-5 p-3 mt-10">
-            <Form {...form} >
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2" >
-                    <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Name</FormLabel>
-                                < FormControl >
-                                    <Input placeholder="Enter your name" {...field} />
-                                </FormControl>
-                                < FormMessage />
-                            </FormItem>
-                        )
-                        }
-                    />
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Email</FormLabel>
-                                < FormControl >
-                                    <Input placeholder="Enter your email" {...field} />
-                                </FormControl>
-                                < FormMessage />
-                            </FormItem>
-                        )
-                        }
-                    />
-                    <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Message</FormLabel>
-                                < FormControl >
-                                    <Textarea placeholder="Enter your message" {...field} />
-                                </FormControl>
-                                < FormMessage />
-                            </FormItem>
-                        )
-                        }
-                    />
-                    < Button type="submit"  className="!mt-3"> Submit </Button>
-                </form>
-            </Form>
-        </Card>
+        <div className="m-5 mt-10">
+            <Card className="max-w-lg mx-auto p-3">
+                <Form {...form} >
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2" >
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Name</FormLabel>
+                                    < FormControl >
+                                        <Input placeholder="Enter your name" {...field} />
+                                    </FormControl>
+                                    < FormMessage />
+                                </FormItem>
+                            )
+                            }
+                        />
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Email</FormLabel>
+                                    < FormControl >
+                                        <Input placeholder="Enter your email" {...field} />
+                                    </FormControl>
+                                    < FormMessage />
+                                </FormItem>
+                            )
+                            }
+                        />
+                        <FormField
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Message</FormLabel>
+                                    < FormControl >
+                                        <Textarea placeholder="Enter your message" {...field} />
+                                    </FormControl>
+                                    < FormMessage />
+                                </FormItem>
+                            )
+                            }
+                        />
+                        < Button type="submit" className="!mt-3"> Submit </Button>
+                    </form>
+                </Form>
+            </Card>
+        </div>
     )
 }
