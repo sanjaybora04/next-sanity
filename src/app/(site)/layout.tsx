@@ -1,9 +1,23 @@
-import '@/globals.css'
-import MyChatBot from '@/components/chatbot'
+import '../globals.css'
 import Script from 'next/script'
 import { Metadata } from 'next'
-import Footer from '@/components/footer'
-import Header from '@/components/header'
+import Header from '@/components/layout/header2';
+import Footer from '@/components/layout/footer';
+import MyChatBot from '@/components/layout/chatbot'
+import { NavigationContainer } from '@/components/layout/navigation';
+import { Poppins, Bitter } from 'next/font/google'
+import { cn } from '@/lib/utils';
+import { Toaster } from '@/components/ui/sonner';
+
+const bitter = Bitter({
+  subsets: ['latin'],  
+  weight: ['100','200','300','400','500','600','700','800','900']
+})
+
+const poppins = Poppins({
+  subsets:['latin'],
+  weight: ['100','200','300','400','500','600','700','800','900']
+});
 
 export const metadata: Metadata = {
   title: "Sanjay Bora | Full Stack Developer",
@@ -46,14 +60,12 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" className='scroll-pt-20 scroll-smooth'>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <link rel="icon" href="/img/fav.png" />
-        <link rel="favicon" href="/img/fav.png" />
-        <link rel='apple-touch-icon' href='/img/fav.png' />
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="favicon" href="/favicon.ico" />
+        <link rel='apple-touch-icon' href='/favicon.ico' />
 
         {/* Google site verification */}
         <meta name="google-site-verification" content="_pkFnCexnyNhaYel3eqz1L71RJ41maYnWEzOjT9E3zA" />
@@ -90,11 +102,13 @@ export default function RootLayout({
           strategy='lazyOnload'
         />
       </head>
-      <body>
+      <body className={cn(poppins.className,bitter.className)}>
         <Header />
-        <main className='mt-[72px]'>{children}</main>
+        <main className='mt-20'>{children}</main>
         <Footer />
-        <MyChatBot />
+        <MyChatBot/>
+        <NavigationContainer/>
+        <Toaster/>
       </body>
     </html>
   )

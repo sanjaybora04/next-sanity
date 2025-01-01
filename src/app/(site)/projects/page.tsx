@@ -1,6 +1,6 @@
-import { getProjects } from "@//sanity/sanity-utils";
+import { getProjects } from "@/lib/sanity/sanity-utils";
 import { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/layout/custom-link";
 
 export const metadata: Metadata = {
   title: "Sanjay Bora | Projects",
@@ -45,9 +45,9 @@ export default async function Projects() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
-      <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
+      <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-blue-600">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white">Projects</h1>
+          <h1 className="text-4xl font-bold font-bitter text-white">Projects</h1>
           <p className="text-white text-sm pt-3">
             <Link href="/" className="hover:underline">
               Home{" "}
@@ -71,59 +71,17 @@ export default async function Projects() {
       {/* End banner Section */}
       {/* Main Content Start */}
       <section className="m-12 sm:mx-32 md:mx-40 lg:mx-52">
-        {projects.map((project) => (
-          <div key={project._id} className="mx-2">
-
-            {project.project_link ?
-              <a href={project.project_link} target="_blank" rel="noreferrer">
-                <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-                  <div className="flex justify-center self-center">
-                    <div className="w-72">
-                      <img
-                        className="my-3 rounded-lg"
-                        src={project.thumbnail}
-                        alt={project.title}
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:px-10 sm:min-w-min">
-                    <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-500 py-3">
-                      {project.description}
-                    </p>
-                    <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
-                  </div>
-                </div>
-              </a> :
-              <Link href={"/projects/" + project.slug}>
-                <div className="m-3 p-3 lg:flex bg-slate-100 rounded-lg shadow-lg group transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-slate-200">
-                  <div className="flex justify-center self-center">
-                    <div className="w-72">
-                      <img
-                        className="my-3 rounded-lg"
-                        src={project.thumbnail}
-                        alt={project.title}
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:px-10 sm:min-w-min">
-                    <h3 className="text-2xl font-semibold group-hover:text-indigo-500">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-500 py-3">
-                      {project.description}
-                    </p>
-                    <p className="text-gray-500 py-3">{new Date(project._createdAt).toLocaleDateString()}</p>
-                  </div>
-                </div>
-              </Link>
-            }
-          </div>
-
-        ))}
-
+        <div className="flex gap-5 flex-wrap justify-center mt-10">
+          {projects.map((p) =>
+            <a href={p.project_link} key={p._id} className="group w-80 shadow-lg rounded-lg">
+              <img src={p.thumbnail} className="rounded-lg aspect-video object-cover bg-indigo-500" />
+              <div className="p-2">
+                <h3 className="text-xl font-semibold font-bitter group-hover:text-indigo-600 text-ellipsis line-clamp-2 my-2">{p.title}</h3>
+                <p className="text-gray-500 text-ellipsis line-clamp-3">{p.description}</p>
+              </div>
+            </a>
+          )}
+        </div>
       </section>
       {/*Main Content End*/}
     </>

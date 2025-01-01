@@ -12,12 +12,12 @@ const builder = imageUrlBuilder(client)
 
 const portableTextComponents: PortableTextComponents = {
   block: {
-    h1: ({ node, children }: any) => <h1 className="text-4xl font-semibold my-5">{children}</h1>,
-    h2: ({ node, children }: any) => <h2 className="text-3xl font-semibold my-5">{children}</h2>,
-    h3: ({ node, children }: any) => <h3 className="text-2xl font-semibold my-5">{children}</h3>,
-    h4: ({ node, children }: any) => <h4 className="text-xl font-medium my-3">{children}</h4>,
-    h5: ({ node, children }: any) => <h5 className="text-lg font-normal my-3">{children}</h5>,
-    h6: ({ node, children }: any) => <h6 className="font-normal my-3">{children}</h6>,
+    h1: ({ node, children }: any) => <h1 className="text-4xl font-semibold my-5 font-bitter">{children}</h1>,
+    h2: ({ node, children }: any) => <h2 className="text-3xl font-semibold my-5 font-bitter">{children}</h2>,
+    h3: ({ node, children }: any) => <h3 className="text-2xl font-semibold my-5 font-bitter">{children}</h3>,
+    h4: ({ node, children }: any) => <h4 className="text-xl font-medium my-3 font-bitter">{children}</h4>,
+    h5: ({ node, children }: any) => <h5 className="text-lg font-normal my-3 font-bitter">{children}</h5>,
+    h6: ({ node, children }: any) => <h6 className="font-normal my-3 font-bitter">{children}</h6>,
     normal: ({ node, children }: any) => <p className="text-md my-3">{children}</p>,
     blockquote: ({ node, children }: any) => <blockquote className="my-5 p-2 border-l-2 border-indigo-500 italic bg-gray-200"><p className="inline">{children}</p></blockquote>,
   },

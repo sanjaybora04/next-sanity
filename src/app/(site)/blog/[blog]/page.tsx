@@ -1,12 +1,12 @@
-import { getBlog, getBlogs } from "@/sanity/sanity-utils";
+import { getBlog, getBlogs } from "@/lib/sanity/sanity-utils";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/layout/custom-link";
 import Giscus from "./giscus";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { PortableText } from "next-sanity";
 import portableTextComponents from "@/components/portable-text-components";
 import PageReader from "@/components/page-reader";
+import { ArrowRight } from "lucide-react";
 
 export async function generateStaticParams() {
   const blogs = await getBlogs()
@@ -71,21 +71,21 @@ const BlogPage = async ({ params }: any) => {
     <div className="blog">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Start banner Section */}
-      <section className="mt-[72px] p-2 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
+      <section className="mt-[72px] p-5 lg:p-7 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-blue-600">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-white p-3">
+          <h1 className="text-3xl font-bold text-white p-3 font-bitter">
             {blog.title}
           </h1>
           <div className="text-sm">
             <Link href="/" className="!text-white hover:underline">
               Home{" "}
             </Link>
-            <ArrowRightIcon className="!text-white inline w-5 h-5" />
+            <ArrowRight className="!text-white inline w-5 h-5" />
             <Link href="/blog" className="!text-white hover:underline">
               {" "}
               Blog
             </Link>
-            <ArrowRightIcon className="!text-white inline w-5 h-5" />
+            <ArrowRight className="!text-white inline w-5 h-5" />
             <Link href={`/blog/${blog.slug}`} className="!text-white hover:underline">
               {" "+blog.title}
             </Link>
@@ -105,9 +105,9 @@ const BlogPage = async ({ params }: any) => {
 
         <PortableText value={blog.body} components={portableTextComponents} />
 
-        <h3 className="text-3xl font-semibold my-5">Support</h3>
+        <h3 className="text-3xl font-semibold mt-14 mb-5 font-bitter">Support</h3>
         <p>
-          Thank you for reading! If you enjoyed this post and want to support my work, consider supporting me by subscribing to my newsletter or sharing this post with a friend.
+          Thank you for reading! If you enjoyed this post and want to support my work, consider supporting me by leaving a comment or sharing this post with a friend.
         </p>
 
         <div className="mt-10">

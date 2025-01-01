@@ -1,9 +1,9 @@
-import Blogs from "@/components/blogs";
-import categories from "@/sanity/config/categories";
-import { getBlogs } from "@/sanity/sanity-utils"
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import BlogGrid from "@/components/bloggrid";
+import categories from "@/lib/sanity/config/categories";
+import { getBlogs } from "@/lib/sanity/sanity-utils"
 import { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/layout/custom-link";
+import { ArrowRightIcon } from "lucide-react";
 
 // Metadata for page
 export async function generateMetadata({ searchParams }: { searchParams: any }): Promise<Metadata> {
@@ -60,9 +60,9 @@ export default async function Page({ searchParams }: { searchParams: any }) {
         <>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             {/* Start banner Section */}
-            <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-400 to-blue-400">
+            <section className="h-72 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-blue-600">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold text-white">{category ? `${category?.title} blog` : 'Blogs'}</h1>
+                    <h1 className="text-4xl font-bitter font-bold text-white">{category ? `${category?.title} blog` : 'Blogs'}</h1>
                     <p className="text-white text-sm pt-3">
                         <Link href="/" className="hover:underline">
                             Home{" "}
@@ -78,7 +78,7 @@ export default async function Page({ searchParams }: { searchParams: any }) {
             </section>
             {/* End banner Section */}
             {/* Main Content Start */}
-            <Blogs blogs={blogs} />
+            <BlogGrid blogs={blogs} />
             {/*Main Content End*/}
         </>
     )
