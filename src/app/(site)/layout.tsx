@@ -1,7 +1,7 @@
 import '../globals.css'
 import Script from 'next/script'
 import { Metadata } from 'next'
-import Header from '@/components/layout/header2';
+import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import MyChatBot from '@/components/layout/chatbot'
 import { NavigationContainer } from '@/components/layout/navigation';

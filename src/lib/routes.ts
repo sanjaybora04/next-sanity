@@ -5,7 +5,7 @@ const Routes = {
     blogPost: (blog:string)=>`/blog/${blog}`,
     projects: '/projects',
     contact: '/contact',
-    resume: '/docs/resume.pdf'
+    resume: '/docs/Resume.pdf'
 }
 
 export default Routes
