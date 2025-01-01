@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="flex flex-wrap gap-10">
         <div className="max-w-80">
           <div className="">
-            <div className="font-bitter">About This Page</div>
+            <div className="font-bitter text-xl">About This Website</div>
             <div className="text-sm mt-2 text-gray-400">
               This page is a reflection of my journey as a developer, showcasing my skills, projects, and expertise in full-stack development, server management, and DevOps. Explore my work and connect with me for collaboration opportunities!
             </div>
@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
 
         <div className="max-w-80 space-y-1">
-          <div className="mb-2 font-bitter">Quick Links</div>
+          <div className="mb-2 text-xl font-bitter">Quick Links</div>
           <Link href={Routes.about} className="flex items-center gap-2 text-gray-400 text-sm hover:text-white hover:underline">
             About me
             <ArrowUpRightFromSquare className="w-3 h-3" />
@@ -38,7 +38,7 @@ export default function Footer() {
 
         <div className="max-w-80">
 
-          <div className="font-bitter">Social Links</div>
+          <div className="font-bitter text-xl">Social Links</div>
           <div className="text-sm mt-2 text-gray-400">Let&apos;s be social. </div>
           <div className="flex gap-2 mt-1 text-gray-400 ">
             <a href="https://www.youtube.com/@sanjaybora04" target="_blank" className="hover:text-white">

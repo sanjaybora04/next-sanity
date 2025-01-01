@@ -40,6 +40,10 @@ const data = [
   {
     image: '/images/techstack/tailwind.webp',
     title: 'TailwindCss',
+  },
+  {
+    image: '/images/techstack/coolify.png',
+    title: 'Coolify'
   }
 ]
 

@@ -1,3 +1,5 @@
+import { ArrowUpRightFromSquare } from "lucide-react";
+
 export default function Experience() {
     return (
         <section className="p-5 sm:p-10 lg:p-20">
@@ -16,9 +18,13 @@ export default function Experience() {
                             <h4 className="text-xl font-bold">Full Stack Developer</h4>
                             <p>Webtoils Development</p>
                             <p className="text-gray-500 font-bitter text-sm">July 2024</p>
-                            <a href="https://webtoils.com" target="_blank"
-                                className="inline-block px-8 py-2 mt-3 text-white bg-gradient-to-r from-indigo-600 to-blue-600"
-                            >View</a>
+                            <ul className="mt-3 list-disc space-y-2">
+                                <li>Led development of content websites like <a href="https://zweibay.de" target="_blank" className="text-blue-600 hover:underline inline-flex gap-1 items-center">zweibay.de<ArrowUpRightFromSquare className="w-4 h-4"/></a>, <a href="https://renovlange.de" target="_blank" className="text-blue-600 hover:underline inline-flex gap-1 items-center">renovlange.de<ArrowUpRightFromSquare className="w-4 h-4"/></a></li>
+                                <li>Created an online reservation system for coworking space bookings.</li>
+                                <li>Set up WhatsApp API for automated chatbot and Google Sheets integration.</li>
+                                <li>Managed a team of 2 interns building content-based websites.</li>
+                                <li>Developed interactive user interfaces and backend services for content projects.</li>
+                            </ul>
                         </div>
                     </div>
                     {/* left */}
@@ -26,12 +32,19 @@ export default function Experience() {
                         <div className="col-start-1 col-end-5 p-4 my-4 mr-auto md:mr-0 md:ml-auto">
                             <h4 className="font-bold text-xl mb-1">Freelance Project</h4>
                             <p className="leading-tight text-justify">
-                                JoinYourTrip -Travel Agency
+                                JoinYourTrip
                             </p>
-                            <p className="text-gray-500 font-bitter text-sm">May 2024</p>
+                            <p className="text-gray-500 font-bitter text-sm">August 2023</p>
                             <a href="https://joinyourtrip.com" target="_blank"
                                 className="inline-block px-8 py-2 mt-3 text-white bg-gradient-to-r from-indigo-600 to-blue-600"
                             >View</a>
+                            <ul className="mt-3 list-disc space-y-2">
+                                <li>Built with Next.js, Express, Sequelize for full-stack development.</li>
+                                <li>Integrated Razorpay for secure payment processing and booking functionality.</li>
+                                <li>Developed responsive, user-friendly travel listings with advanced filtering options.</li>
+                                <li>Admin dashboard for managing listings, bookings, and user data.</li>
+                                <li>Deployed on Vercel and AWS/Heroku for high availability and scalability.</li>
+                            </ul>
                         </div>
                         <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
                             <div className="h-full w-4 flex items-center justify-center">
@@ -59,10 +72,15 @@ export default function Experience() {
                             >
                                 Certificate
                             </a>
+
+                            <ul className="mt-3 list-disc space-y-2">
+                                <li>Created algorithm utilizing deep learning methods to identify and categorize objects in images.</li>
+                                <li>Executed computer vision workflows for real-time object detection, tracking and identification.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     )
 }
