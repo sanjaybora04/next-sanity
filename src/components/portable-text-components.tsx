@@ -36,7 +36,7 @@ const portableTextComponents: PortableTextComponents = {
     strong: ({ children }: any) => <strong className="font-bold">{children}</strong>,
     underline: ({ children }: any) => <u className="underline">{children}</u>,
     del: ({ children }: any) => <del className="line-through">{children}</del>,
-    code: ({ children }: any) => <pre className="border bg-black text-white p-2 rounded-lg">{children}</pre>,
+    code: ({ children }: any) => <pre className="border bg-black text-white p-2 rounded-lg overflow-x-scroll">{children}</pre>,
     link: ({ children, value }: any) => {
       const rel = !value.href?.startsWith('/') ? 'noreferrer noopener' : undefined
       return (
